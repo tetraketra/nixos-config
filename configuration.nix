@@ -64,7 +64,6 @@
 
     # Define system packages.
     environment.systemPackages = with pkgs; [
-        firefox
         git
         github-desktop
         nemo
@@ -74,4 +73,6 @@
         zsh
         gnumake
     ];
+
+    programs.firefox.enable = true; # Theming!
 }
