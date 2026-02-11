@@ -13,7 +13,7 @@
     environment.cinnamon.excludePackages = with pkgs; [
         celluloid
         gnome-color-manager
-        calendar
+        gnome-calendar
         xviewer
         onboard
         gnome-online-accounts
