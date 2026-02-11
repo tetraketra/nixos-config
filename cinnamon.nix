@@ -12,14 +12,14 @@
 
     environment.cinnamon.excludePackages = with pkgs; [
         celluloid
-        color
+        gnome-color-manager
         calendar
         xviewer
         onboard
         gnome-online-accounts
         screenshot
         warpinator
-        
+
     ];
 }
   
