@@ -15,6 +15,9 @@ sudo mv /etc/nixos /etc/nixos.bak
 sudo ln -sf $REPO_HOME/hosts/$1/hardware-configuration.nix $REPO_HOME/hardware-configuration.nix
 sudo ln -s $REPO_HOME /etc/nixos
 
+# Move dotfiles.
+sudo ln -sf $REPO_HOME/dotfiles/.zshrc ~/.zshrc
+
 # Rebuild.
 sudo nixos-rebuild switch
 
