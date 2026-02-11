@@ -36,6 +36,10 @@
             "org/cinnamon/desktop/wm/preferences" = {
                 theme = "Mint-Y-Dark-Teal";
             };
+
+            "org/gnome/desktop/interface" = {
+                color-scheme = "prefer-dark";
+            };
         };
     }];
 
