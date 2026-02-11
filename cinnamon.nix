@@ -18,6 +18,7 @@
     # Theming.
     environment.systemPackages = with pkgs; [
         dconf
+        dconf-editor
         mint-themes
         mint-l-icons
         mint-cursor-themes

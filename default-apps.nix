@@ -19,9 +19,4 @@
         };
         
     }];
-
-    environment.etc."xdg/mimeapps.list".text = ''
-        [Default Applications]
-        text/plain=code.desktop
-    '';
 }
