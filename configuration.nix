@@ -51,7 +51,7 @@
     system.stateVersion = "25.11";
 
     nixpkgs.config.allowUnfree = true;
-    
+
     # Define user account.
     users.users.tetraketra = {
         isNormalUser = true;
