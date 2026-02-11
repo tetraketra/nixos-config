@@ -12,12 +12,12 @@
     boot.loader.grub.enable = true;
     boot.loader.grub.device = "/dev/sda";
     boot.loader.grub.useOSProber = true;
-    
+
     networking.hostName = "nixos";
     networking.networkmanager.enable = true;
-    
+
     time.timeZone = "America/New_York";
-    
+
     i18n.defaultLocale = "en_US.UTF-8";
     i18n.extraLocaleSettings = {
         LC_ADDRESS = "en_US.UTF-8";
@@ -34,7 +34,12 @@
     security.rtkit.enable = true;
 
     services.xserver.enable = true;
-    services.xserver.displayManager.lightdm.enable = true;
+    services.xserver.displayManager = {
+        lightdm.enable = true;
+        autoLogin.enable = true;
+        autoLogin.user = "tetraketra";
+    };
+
     services.xserver.xkb = {
         layout = "us";
         variant = "";

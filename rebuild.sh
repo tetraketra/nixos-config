@@ -17,7 +17,8 @@ ln -sf $REPO_HOME/dotfiles/.bashrc $USER_HOME/.bashrc
 # Rebuild.
 echo "🏗️  Rebuilding."
 nixos-rebuild switch
-dconf reset -f /org/gnome/desktop/
+dconf reset -f /org/gnome/desktop/interface/
+dconf reset -f /org/cinnamon/desktop/default-applications/terminal/
 
 # Final.
 echo "✅ Complete!"
