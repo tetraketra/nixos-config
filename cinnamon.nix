@@ -29,5 +29,9 @@
         };
     }];
 
-    environment.variables.GTK_THEME = "Adwaita:dark";
+    environment.variables = {
+        GTK_THEME = "Adwaita:dark";
+        ADW_DISABLE_PORTAL = "1";
+        QT_STYLE_OVERRIDE = "adwaita-dark";
+    };
 }
