@@ -6,8 +6,8 @@
         alacritty-theme
     ];
 
-    alacritty.enable = true;
-    alacritty-theme.enable = true;
+    programs.alacritty.enable = true;
+    programs.alacritty-theme.enable = true;
 
     programs.dconf.profiles.user.databases = [{
         settings = {
