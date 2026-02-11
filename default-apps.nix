@@ -10,7 +10,17 @@
         settings = {
             "org/cinnamon/desktop/applications/terminal" = {
                 exec = "alacritty";
-                exec-arg = "-e";
+                exec-arg = "--";
+            };
+
+            "org/cinnamon/desktop/keybindings" = {
+                custom-list = "['custom0']"
+            };
+
+            "org/cinnamon/desktop/keybindings/custom-keybindings/custom0" = {
+                binding="['<Primary><Alt>t']";
+                command="alacritty -e";
+                name="Launch Alacritty";
             };
 
             "org/cinnamon/desktop/applications/calculator" = {
