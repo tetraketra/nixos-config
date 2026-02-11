@@ -2,7 +2,7 @@
 set -e
 REPO_HOME="$(git rev-parse --show-toplevel)"
 
-# Link repo to `/etc/nixos`.
+# Move repo.
 echo "🚚 Moving repo to \`/etc/nixos\`."
 [ -f /etc/nixos ] && sudo mv /etc/nixos /etc/nixos.bak
 sudo rm -rf /etc/nixos
@@ -11,7 +11,8 @@ sudo cp /etc/nixos/hosts/$1/hardware-configuration.nix /etc/nixos/hardware-confi
 
 # Move dotfiles.
 echo "🔗 Linking dotfiles."
-ln -sf $REPO_HOME/dotfiles/.bashrc $HOME/.bashrc
+USER_HOME=$(eval echo "~$SUDO_USER")
+ln -sf $REPO_HOME/dotfiles/.bashrc $USER_HOME/.bashrc
 
 # Rebuild.
 echo "🏗️  Rebuilding."
