@@ -72,7 +72,6 @@
         wget
         zsh
         gnumake
+        firefox
     ];
-
-    programs.firefox.enable = true; # Theming!
 }

@@ -23,6 +23,7 @@
         mint-l-icons
         mint-cursor-themes
         gnome-tweaks
+        gtk
     ];
 
     programs.dconf.enable = true;
