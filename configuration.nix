@@ -57,22 +57,18 @@
         isNormalUser = true;
         description = "TetraKetra";
         extraGroups = [ "networkmanager" "wheel" ];
-        shell = "zsh";
+        shell = pkgs.zsh;
     };
 
     # Define system packages.
     environment.systemPackages = with pkgs; [
-        wget
-        git
-        zsh
-    ];
-
-    # Define user packages.
-    users.users.tetraketra.packages = with pkgs; [
         firefox
+        git
         github-desktop
         nemo
-        vscode-with-extensions
         shutter
+        vscode-with-extensions
+        wget
+        zsh
     ];
 }
