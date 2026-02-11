@@ -29,12 +29,13 @@
     programs.dconf.profiles.user.databases = [{
         settings = {
             "org/cinnamon/desktop/interface" = {
-                gtk-theme = "Mint-Y-Dark-Green";
-                icon-theme = "Mint-L-Green";
+                gtk-theme = "Mint-L-Dark";
+                icon-theme = "Mint-L";
+                cursor-theme = "XCursor-Pro-Dark";
             };
 
             "org/cinnamon/desktop/wm/preferences" = {
-                theme = "Mint-Y-Dark-Green";
+                theme = "Mint-L-Dark";
             };
 
             "org/gnome/desktop/interface" = {
