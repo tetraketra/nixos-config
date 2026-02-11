@@ -1,5 +1,6 @@
-chmod +w /etc/nixos/configuration.nix
-rm /etc/nixos/configuration.nix
-sudo ln -sf ./configuration.nix /etc/nixos/configuration.nix
+REPO_HOME="$(git rev-parse --show-toplevel)"
 
-nixos-rebuild switch 
+sudo mv /etc/nixos /etc/nixos.bak
+sudo ln -s $REPO_HOME /etc/nixos
+sudo ln -s $REPO_HOME/hosts/$1/hardware-configuration.nix /etc/nixos/hardware-configuration.nix
+sudo nixos-rebuild switch
