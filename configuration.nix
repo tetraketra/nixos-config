@@ -59,7 +59,7 @@
         isNormalUser = true;
         description = "TetraKetra";
         extraGroups = [ "networkmanager" "wheel" ];
-        shell = pkgs.zsh;
+        # shell = pkgs.zsh;
     };
 
     # Define system packages.

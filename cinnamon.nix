@@ -28,10 +28,6 @@
     programs.dconf.enable = true;
     programs.dconf.profiles.user.databases = [{
         settings = {
-            "org/gnome/desktop/interface" = {
-                color-scheme = "prefer-dark";
-            };
-
             "org/cinnamon/desktop/interface" = {
                 gtk-theme = "Mint-Y-Dark-Teal";
                 icon-theme = "Mint-L-Teal";
@@ -48,7 +44,4 @@
         style = "adwaita-dark";
         platformTheme = "gnome";
     };
-
-    xdg.portal.enable = true;
-    xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 }
