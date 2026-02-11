@@ -28,11 +28,4 @@
             };
         };
     }];
-
-    programs.gtk.enable = true;
-    programs.gtk.settings = {
-        gtk-theme = "Adwaita-dark";
-        icon-theme = "Papirus-Dark";
-    };
 }
-  
