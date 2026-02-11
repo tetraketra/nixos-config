@@ -38,7 +38,7 @@
     services.displayManager = {
         autoLogin.enable = true;
         autoLogin.user = "tetraketra";
-    }
+    };
 
     services.xserver.xkb = {
         layout = "us";

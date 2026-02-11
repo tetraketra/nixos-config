@@ -5,6 +5,7 @@
         alacritty
         alacritty-theme
     ];
+    
     programs.dconf.profiles.user.databases = [{
         settings = {
             "org/gnome/desktop/default-applications/terminal" = {
