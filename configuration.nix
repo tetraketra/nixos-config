@@ -74,6 +74,4 @@
         zsh
         gnumake
     ];
-
-    programs.firefox.enable = true;
 }
