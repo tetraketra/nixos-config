@@ -2,7 +2,7 @@
 
 {
   services.xserver.desktopManager.cinnamon.enable = true;
-  services.cinnamon.apps.enable = false;
+  services.cinnamon.apps.enable = true;
 
   users.users.tetraketra.packages = with pkgs; [
     mint-themes
