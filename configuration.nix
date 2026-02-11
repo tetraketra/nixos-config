@@ -75,5 +75,6 @@
         vscode-with-extensions
         wget
         zsh
+        home-manager
     ];
 }
