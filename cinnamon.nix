@@ -1,9 +1,22 @@
 { config, pkgs, ... }:
 
 {
+    # Setup.
     services.xserver.desktopManager.cinnamon.enable = true;
     services.cinnamon.apps.enable = true;
 
+    environment.cinnamon.excludePackages = with pkgs; [
+        celluloid
+        gnome-color-manager
+        gnome-calendar
+        xviewer
+        onboard
+        gnome-online-accounts
+        gnome-screenshot
+        warpinator
+    ];
+
+    # Theming.
     environment.systemPackages = with pkgs; [
         dconf
         mint-themes
@@ -14,6 +27,10 @@
     programs.dconf.enable = true;
     programs.dconf.profiles.user.databases = [{
         settings = {
+            "org/gnome/desktop/interface" = {
+                color-scheme = "prefer-dark";
+            };
+            
             "org/cinnamon/desktop/interface" = {
                 gtk-theme = "Mint-Y-Dark-Teal";
                 icon-theme = "Mint-L-Teal";
@@ -31,14 +48,6 @@
         platformTheme = "gnome";
     };
 
-    environment.cinnamon.excludePackages = with pkgs; [
-        celluloid
-        gnome-color-manager
-        gnome-calendar
-        xviewer
-        onboard
-        gnome-online-accounts
-        gnome-screenshot
-        warpinator
-    ];
+    xdg.portal.enable = true;
+    xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 }
