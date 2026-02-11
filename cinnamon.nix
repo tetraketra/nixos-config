@@ -17,7 +17,7 @@
         xviewer
         onboard
         gnome-online-accounts
-        screenshot
+        gnome-screenshot
         warpinator
 
     ];
