@@ -73,6 +73,5 @@
         wget
         zsh
         gnumake
-        dconf
     ];
 }
