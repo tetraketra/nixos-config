@@ -52,6 +52,10 @@
 
     system.stateVersion = "25.11";
 
+    nix.extraOptions = ''
+        experimental-features = nix-command flakes
+    '';
+
     # Define user account.
     users.users.tetraketra = {
         isNormalUser = true;

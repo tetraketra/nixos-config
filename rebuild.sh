@@ -10,12 +10,6 @@ cleanup() {
 }
 trap cleanup EXIT
 
-# Enable experimental features.
-sudo cp /etc/nix/nix.conf /etc/nix/nix.conf.tmp
-grep -qxF 'experimental-features = nix-command flakes' /etc/nix/nix.conf.tmp || \
-    echo 'experimental-features = nix-command flakes' | sudo tee -a /etc/nix/nix.conf.tmp
-sudo mv /etc/nix/nix.conf.tmp /etc/nix/nix.conf
-
 # Link repo to `/etc/nixos`.
 sudo mv /etc/nixos /etc/nixos.bak
 sudo ln -sf $REPO_HOME/hosts/$1/hardware-configuration.nix $REPO_HOME/hardware-configuration.nix
