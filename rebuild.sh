@@ -1,2 +1,2 @@
 export NIX_PATH="~/Documents/GitHub/nixos-config/configuration.nix"
-sudo -E nixos-rebuild switch
+-E nixos-rebuild switch
