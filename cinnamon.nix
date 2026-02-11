@@ -52,9 +52,4 @@
         style = "adwaita-dark";
         platformTheme = "gnome";
     };
-
-    services.xserver.desktopManager.cinnamon.extraGsettingsOverrides = ''
-        [org.gnome.desktop.interface]
-        color-scheme='prefer-dark'
-    '';
 }
