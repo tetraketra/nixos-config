@@ -2,22 +2,11 @@
 set -e
 REPO_HOME="$(git rev-parse --show-toplevel)"
 
-# Cleanup.
-echo "🗑️  Defining cleanup on-exit step."
-cleanup() {
-    if [ -L "$REPO_HOME/hardware-configuration.nix" ]; then
-        unlink "$REPO_HOME/hardware-configuration.nix"
-    fi
-}
-trap cleanup EXIT
-
 # Link repo to `/etc/nixos`.
-echo "🔗 Linking repo to \`/etc/nixos\`."
+echo "🚚 Moving repo to \`/etc/nixos\`."
 [ -f /etc/nixos ] && sudo mv /etc/nixos /etc/nixos.bak
 sudo cp -r $REPO_HOME /etc/nixos
 sudo cp /etc/nixos/hosts/$1/hardware-configuration.nix /etc/nixos/hardware-configuration.nix
-# sudo ln -sf $REPO_HOME/hosts/$1/hardware-configuration.nix $REPO_HOME/hardware-configuration.nix
-# sudo ln -s $REPO_HOME /etc/nixos
 
 # Move dotfiles.
 echo "🔗 Linking dotfiles to \`~\`."
