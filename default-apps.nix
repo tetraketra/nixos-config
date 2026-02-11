@@ -14,7 +14,7 @@
             };
 
             "org/cinnamon/desktop/keybindings" = {
-                custom-list = "['custom0']"
+                custom-list = "['custom0']";
             };
 
             "org/cinnamon/desktop/keybindings/custom-keybindings/custom0" = {
