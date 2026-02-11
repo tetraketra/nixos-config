@@ -25,6 +25,7 @@
     xdg-utils
     xdg-desktop-portal
     xdg-desktop-portal-gtk
+    # xdg-desktop-portal-xapp
   ];
 }
   
