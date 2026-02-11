@@ -40,6 +40,10 @@
             "org/gnome/desktop/interface" = {
                 color-scheme = "prefer-dark";
             };
+
+            "org/x/apps/portal" = {
+                color-scheme = "prefer-dark";
+            };
         };
     }];
 
