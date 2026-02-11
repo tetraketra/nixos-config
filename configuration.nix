@@ -5,6 +5,7 @@
         ./hardware-configuration.nix
         ./oauth-redirect.nix
         ./cinnamon.nix
+        ./alacritty.nix
     ];
 
     # Foundation
@@ -73,7 +74,5 @@
         zsh
         gnumake
         firefox
-        alacritty
-        alacritty-theme
     ];
 }
