@@ -1,2 +1,2 @@
 nixos-rebuild switch \
-    -I nixos-config=~/Documents/GitHub/nixos-config/configuration.nix
+    -I nixos-config=~/Documents/GitHub/nixos-config
