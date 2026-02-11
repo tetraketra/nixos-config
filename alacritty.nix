@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-    environment.cinnamon.excludePackages = with pkgs; [
+    environment.systemPackages = with pkgs; [
         alacritty
         alacritty-theme
     ];
