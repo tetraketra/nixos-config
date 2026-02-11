@@ -76,5 +76,6 @@
         wget
         zsh
         home-manager
+        make
     ];
 }
