@@ -76,5 +76,4 @@
     ];
 
     programs.firefox.enable = true;
-    programs.github-desktop.enable = true;
 }
