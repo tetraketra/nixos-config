@@ -61,6 +61,7 @@
     };
 
     # Define system packages.
+    programs.zsh.enable = true;
     environment.systemPackages = with pkgs; [
         firefox
         git
