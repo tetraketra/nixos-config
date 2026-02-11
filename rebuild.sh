@@ -1,2 +1,2 @@
-export NIX_PATH="~/Documents/GitHub/nixos-config/configuration.nix"
-nixos-rebuild switch
+nixos-rebuild switch \
+    -I nixos-config=$HOME/Documents/GitHub/nixos-config/configuration.nix
