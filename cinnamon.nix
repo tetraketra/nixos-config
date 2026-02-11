@@ -47,6 +47,25 @@
         };
     }];
 
+    programs.dconf.extraSettings = {
+        "org/cinnamon/desktop/interface" = {
+            gtk-theme = "Mint-Y-Dark-Teal";
+            icon-theme = "Mint-L-Teal";
+        };
+
+        "org/cinnamon/desktop/wm/preferences" = {
+            theme = "Mint-Y-Dark-Teal";
+        };
+
+        "org/gnome/desktop/interface" = {
+            color-scheme = "prefer-dark";
+        };
+
+        "org/x/apps/portal" = {
+            color-scheme = "prefer-dark";
+        };
+    };
+
     qt = {
         enable = true;
         style = "adwaita-dark";
