@@ -73,5 +73,7 @@
         zsh
         gnumake
         firefox
+        alacritty
+        alacritty-theme
     ];
 }
