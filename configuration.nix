@@ -34,11 +34,11 @@
     security.rtkit.enable = true;
 
     services.xserver.enable = true;
-    services.xserver.displayManager = {
-        lightdm.enable = true;
+    services.xserver.displayManager.lightdm.enable = true;
+    services.displayManager = {
         autoLogin.enable = true;
         autoLogin.user = "tetraketra";
-    };
+    }
 
     services.xserver.xkb = {
         layout = "us";
