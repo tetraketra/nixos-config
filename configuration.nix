@@ -62,6 +62,7 @@
 
     # Define system packages.
     programs.zsh.enable = true;
+    programs.dconf.enable = true;
     environment.systemPackages = with pkgs; [
         firefox
         git
@@ -72,5 +73,6 @@
         wget
         zsh
         gnumake
+        dconf
     ];
 }
