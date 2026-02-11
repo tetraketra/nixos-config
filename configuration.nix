@@ -79,5 +79,7 @@
         zsh
         gnumake
         firefox
+        vlc
+        qalculate
     ];
 }
