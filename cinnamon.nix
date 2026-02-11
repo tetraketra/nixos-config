@@ -12,9 +12,10 @@
     ];
 
     programs.dconf.enable =true;
-    
+
     qt = {
         enable = true;
+        style = "adwaita-dark";
         platformTheme = "gnome";
     };
 
