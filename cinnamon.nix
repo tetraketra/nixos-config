@@ -6,7 +6,6 @@
 
     environment.systemPackages = with pkgs; [
         dconf
-        qt
     ];
 
     users.users.tetraketra.packages = with pkgs; [
