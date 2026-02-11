@@ -115,10 +115,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-#personal ailases
-alias c="clear"
-alias txt="sublime"
-alias open="sublime"
-alias vencord="sh -c \"\$(curl -sS https://raw.githubusercontent.com/Vendicated/VencordInstaller/main/install.sh)\""
-. "$HOME/.cargo/env"
