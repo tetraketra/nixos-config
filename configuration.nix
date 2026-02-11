@@ -80,6 +80,6 @@
         gnumake
         firefox
         vlc
-        qalculate
+        qalculate-gtk
     ];
 }
