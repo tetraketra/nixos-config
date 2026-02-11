@@ -16,9 +16,6 @@ sudo ln -sf $REPO_HOME/dotfiles/.zshrc ~/.zshrc
 # Rebuild.
 echo "🏗️  Rebuilding."
 nixos-rebuild switch
-
-# Theming
-echo "🏗️  Fixing things. "
 dconf reset -f /org/gnome/desktop/interface/
 
 # Final.
