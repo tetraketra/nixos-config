@@ -11,7 +11,7 @@ sudo cp /etc/nixos/hosts/$1/hardware-configuration.nix /etc/nixos/hardware-confi
 
 # Move dotfiles.
 echo "🔗 Linking dotfiles."
-sudo ln -sf $REPO_HOME/dotfiles/.bashrc ~/.bashrc
+sudo ln -sf $REPO_HOME/dotfiles/.bashrc $HOME/.bashrc
 
 # Rebuild.
 echo "🏗️  Rebuilding."
