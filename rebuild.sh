@@ -3,13 +3,13 @@ set -e
 REPO_HOME="$(git rev-parse --show-toplevel)"
 
 # Cleanup.
-echo "🗑️  Defining cleanup on-exit step."
-cleanup() {
-    if [ -L "$REPO_HOME/hardware-configuration.nix" ]; then
-        unlink "$REPO_HOME/hardware-configuration.nix"
-    fi
-}
-trap cleanup EXIT
+# echo "🗑️  Defining cleanup on-exit step."
+# cleanup() {
+#     if [ -L "$REPO_HOME/hardware-configuration.nix" ]; then
+#         unlink "$REPO_HOME/hardware-configuration.nix"
+#     fi
+# }
+# trap cleanup EXIT
 
 # Link repo to `/etc/nixos`.
 echo "🔗 Linking repo to \`/etc/nixos\`."
