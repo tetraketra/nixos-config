@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-22.05";
+    nixpkgs.url = "nixpkgs/nixos-25.11";
   };
   outputs = { self, nixpkgs }@attrs: {
     nixosConfigurations.motoko = nixpkgs.lib.nixosSystem rec {
