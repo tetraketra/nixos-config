@@ -6,7 +6,7 @@
             input.nixplgs.follows = "nixpkgs";
         };
     };
-    outputs = { self, nixpkgs home-manager }@attrs: {
+    outputs = { self, nixpkgs, home-manager }@attrs: {
         nixosConfigurations.nixos = nixpkgs.lib.nixosSystem rec {
             pkgs = import nixpkgs { inherit system; config = { allowUnfree = true; };};
             system = "x86_64-linux";
