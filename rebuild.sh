@@ -10,7 +10,7 @@ sudo cp -r $REPO_HOME /etc/nixos
 sudo cp /etc/nixos/hosts/$1/hardware-configuration.nix /etc/nixos/hardware-configuration.nix
 
 # Move dotfiles.
-echo "🔗 Linking dotfiles to \`~\`."
+echo "🔗 Linking dotfiles."
 sudo ln -sf $REPO_HOME/dotfiles/.zshrc ~/.zshrc
 
 # Rebuild.
