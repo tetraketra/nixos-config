@@ -41,9 +41,10 @@
         GTK_THEME = "Adwaita:dark";
         ADW_DISABLE_PORTAL = "1";
         QT_STYLE_OVERRIDE = "adwaita-dark";
+        QT_QPA_PLATFORMTHEME = "gnome";
     };
 
-    programs.qt = {
+    qt = {
         enable = true;
         platformTheme.name = "gnome";
         style.name = "adwaita-dark";
