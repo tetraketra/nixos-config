@@ -6,6 +6,9 @@
         alacritty-theme
     ];
 
+    alacritty.enable = true;
+    alacritty-theme.enable = true;
+
     programs.dconf.profiles.user.databases = [{
         settings = {
             "org/cinnamon/desktop/default-applications/terminal" = {
