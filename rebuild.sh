@@ -17,7 +17,7 @@ ln -sf $REPO_HOME/dotfiles/.bashrc $USER_HOME/.bashrc
 # Rebuild.
 echo "🏗️  Rebuilding."
 nixos-rebuild switch
-dconf reset -f /org/gnome/desktop/interface/
+dconf reset -f /org/gnome/desktop/
 
 # Final.
 echo "✅ Complete!"
