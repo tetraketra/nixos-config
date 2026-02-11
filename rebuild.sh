@@ -10,6 +10,12 @@ sudo ln -s $REPO_HOME /etc/nixos
 # Rebuild.
 sudo nixos-rebuild switch
 
+# Cinnamon
+gsettings set org.cinnamon.desktop.interface gtk-theme "Mint-Y-Dark-Teal"
+gsettings set org.cinnamon.desktop.wm.preferences theme "Mint-Y-Dark-Teal"
+gsettings set org.cinnamon.desktop.interface icon-theme "Mint-L-Teal"
+cinnamon --replace &
+
 # Cleanup
 cleanup() {
     if [ -L "$REPO_HOME/hardware-configuration.nix" ]; then

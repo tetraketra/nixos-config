@@ -4,6 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ./oauth-redirect.nix
+    ./cinnnamon.nix
   ];
 
   # Foundation
@@ -33,7 +34,6 @@
 
   services.xserver.enable = true;
   services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.desktopManager.cinnamon.enable = true;
   services.xserver.xkb = {
     layout = "us";
     variant = "";
@@ -49,6 +49,8 @@
   };
 
   nixpkgs.config.allowUnfree = true;
+
+  system.stateVersion = "25.11";
 
   # Define user account.
   users.users.tetraketra = {
@@ -70,11 +72,4 @@
     nemo
     vscode-with-extensions
   ];
-
-  # Cinnamon theming and config.
-
-  # services.cinnamon.apps.enable = false;
-  # dconf.settings = {};
-
-  system.stateVersion = "25.11";
 }
