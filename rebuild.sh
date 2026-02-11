@@ -11,4 +11,9 @@ sudo ln -s $REPO_HOME /etc/nixos
 sudo nixos-rebuild switch
 
 # Cleanup
-unlink $REPO_HOME/hardware-configuration.nix
+cleanup() {
+    if [ -L "$REPO_HOME/hardware-configuration.nix" ]; then
+        unlink "$REPO_HOME/hardware-configuration.nix"
+    fi
+}
+trap cleanup EXIT
