@@ -12,6 +12,16 @@
                 exec = "alacritty";
                 exec-arg = "-e";
             };
+
+            "org/cinnamon/desktop/applications/calculator" = {
+                exec = "qalculate-gtk";
+            };
         };
+        
     }];
+
+    environment.etc."xdg/mimeapps.list".text = ''
+        [Default Applications]
+        text/plain=code.desktop
+    '';
 }

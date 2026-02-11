@@ -5,7 +5,7 @@
         ./hardware-configuration.nix
         ./oauth-redirect.nix
         ./cinnamon.nix
-        ./alacritty.nix
+        ./default-apps.nix
     ];
 
     # Foundation
