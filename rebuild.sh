@@ -3,7 +3,7 @@ set -e
 REPO_HOME="$(git rev-parse --show-toplevel)"
 
 # Cleanup.
-echo "🗑️ Defining cleanup on-exit step."
+echo "🗑️  Defining cleanup on-exit step."
 cleanup() {
     if [ -L "$REPO_HOME/hardware-configuration.nix" ]; then
         unlink "$REPO_HOME/hardware-configuration.nix"
@@ -22,7 +22,7 @@ echo "🔗 Linking dotfiles to \`~\`."
 sudo ln -sf $REPO_HOME/dotfiles/.zshrc ~/.zshrc
 
 # Rebuild.
-echo "🏗️ Rebuilding."
+echo "🏗️  Rebuilding."
 nixos-rebuild switch
 
 # Cinnamon.
