@@ -19,10 +19,10 @@ nixos-rebuild switch
 
 # Cinnamon.
 echo "🫚 Updating cinnamon."
-gsettings set org.cinnamon.desktop.interface gtk-theme "Mint-Y-Dark-Teal"
-gsettings set org.cinnamon.desktop.wm.preferences theme "Mint-Y-Dark-Teal"
-gsettings set org.cinnamon.desktop.interface icon-theme "Mint-L-Teal"
-cinnamon --replace &
+# gsettings set org.cinnamon.desktop.interface gtk-theme "Mint-Y-Dark-Teal"
+# gsettings set org.cinnamon.desktop.wm.preferences theme "Mint-Y-Dark-Teal"
+# gsettings set org.cinnamon.desktop.interface icon-theme "Mint-L-Teal"
+# cinnamon --replace &
 
 # Final.
 echo "✅ Complete!"

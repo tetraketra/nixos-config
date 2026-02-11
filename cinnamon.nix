@@ -11,7 +11,19 @@
         mint-cursor-themes
     ];
 
-    programs.dconf.enable =true;
+    programs.dconf.enable = true;
+    programs.dconf.profiles.user.databases = [{
+        settings = {
+            "org/cinnamon/desktop/interface" = {
+                gtk-theme = "Mint-Y-Dark-Teal";
+                icon-theme = "Mint-L-Teal";
+            };
+
+            "org/cinnamon/desktop/wm/preferences" = {
+                theme = "Mint-Y-Dark-Teal";
+            };
+        };
+    }];
 
     qt = {
         enable = true;
