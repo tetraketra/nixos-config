@@ -4,7 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ./oauth-redirect.nix
-    ./cinnnamon.nix
+    ./cinnamon.nix
   ];
 
   # Foundation
