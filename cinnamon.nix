@@ -6,13 +6,17 @@
 
     environment.systemPackages = with pkgs; [
         dconf
-    ];
-
-    users.users.tetraketra.packages = with pkgs; [
         mint-themes
         mint-l-icons
         mint-cursor-themes
     ];
+
+    programs.dconf.enable =true;
+    
+    qt = {
+        enable = true;
+        platformTheme = "gnome";
+    };
 
     environment.cinnamon.excludePackages = with pkgs; [
         celluloid
@@ -24,27 +28,4 @@
         gnome-screenshot
         warpinator
     ];
-
-    programs.dconf.enable = true;
-    programs.dconf.profiles.user.databases = [{
-        lockAll = true;
-        settings = {
-            "org/gnome/desktop/interface" = {
-                color-scheme = "prefer-dark";
-            };
-        };
-    }];
-
-    environment.variables = {
-        GTK_THEME = "Adwaita:dark";
-        ADW_DISABLE_PORTAL = "1";
-        QT_STYLE_OVERRIDE = "adwaita-dark";
-        QT_QPA_PLATFORMTHEME = "gnome";
-    };
-
-    qt = {
-        enable = true;
-        platformTheme = "gnome";
-        style = "adwaita-dark";
-    };
 }
