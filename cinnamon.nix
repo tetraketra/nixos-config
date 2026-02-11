@@ -19,7 +19,6 @@
         gnome-online-accounts
         gnome-screenshot
         warpinator
-
     ];
 
     programs.dconf.profiles.user.databases = [{

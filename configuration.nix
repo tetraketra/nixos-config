@@ -57,12 +57,14 @@
         isNormalUser = true;
         description = "TetraKetra";
         extraGroups = [ "networkmanager" "wheel" ];
+        shell = "zsh";
     };
 
     # Define system packages.
     environment.systemPackages = with pkgs; [
         wget
         git
+        zsh
     ];
 
     # Define user packages.
