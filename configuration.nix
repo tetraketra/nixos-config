@@ -71,5 +71,6 @@
         github-desktop
         nemo
         vscode-with-extensions
+        shutter
     ];
 }
