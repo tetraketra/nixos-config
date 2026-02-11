@@ -22,6 +22,7 @@
         mint-themes
         mint-l-icons
         mint-cursor-themes
+        gnome-tweaks
     ];
 
     programs.dconf.enable = true;
@@ -30,7 +31,7 @@
             "org/gnome/desktop/interface" = {
                 color-scheme = "prefer-dark";
             };
-            
+
             "org/cinnamon/desktop/interface" = {
                 gtk-theme = "Mint-Y-Dark-Teal";
                 icon-theme = "Mint-L-Teal";
