@@ -81,5 +81,6 @@
         firefox
         vlc
         qalculate-gtk
+        gimp2-with-plugins
     ];
 }
