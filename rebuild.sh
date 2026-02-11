@@ -23,7 +23,7 @@ sudo ln -sf $REPO_HOME/dotfiles/.zshrc ~/.zshrc
 
 # Rebuild.
 echo "🏗️ Rebuilding."
-sudo nixos-rebuild switch
+nixos-rebuild switch
 
 # Cinnamon.
 echo "🫚 Updating cinnamon."
