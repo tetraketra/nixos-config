@@ -24,7 +24,8 @@ in
         rust-analyzer
 
         # == python ====
-        python312 
+        python312
+        python27
         uv
 
         # == games =====
