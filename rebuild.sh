@@ -19,7 +19,7 @@ ln -sf $REPO_HOME/dotfiles/.zshrc $USER_HOME/.zshrc
 
 # Rebuild.
 echo "🏗️  Rebuilding."
-nixos-rebuild switch --flake /etc/nixos/flake.nix#myNixos
+nixos-rebuild switch --flake /etc/nixos/flake.nix#myNixos --impure
 dconf reset -f /org/gnome/desktop/interface/
 dconf reset -f /org/cinnamon/desktop/applications/
 

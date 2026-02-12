@@ -97,5 +97,5 @@
         users = {
             tetraketra = import ./home.nix;
         };
-    }
+    };
 }
