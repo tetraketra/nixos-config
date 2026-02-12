@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
     imports = [
@@ -7,6 +7,7 @@
         ./cinnamon.nix
         ./default-apps.nix
         ./development.nix
+        inputs.homne-manager.nixosModules.home-manager
     ];
 
     # Foundation
