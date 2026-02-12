@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs-stable, ... }:
 
 {
     environment.systemPackages = with pkgs; [
@@ -43,7 +43,7 @@
                 rust-lang.rust-analyzer
                 fill-labs.dependi
                 njpwerner.autodocstring
-            ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+            ] ++ pkgs-stable.vscode-utils.extensionsFromVscodeMarketplace [
                 # RMB Extension
                 # > Download Specific Version VSIX
                 # > `openssl dgst -sha256 -binary [YOUR_FILE_HERE] | openssl base64 -A` 
@@ -76,6 +76,6 @@
         })
     ];
     environment.sessionVariables = {
-        RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
+        RUST_SRC_PATH = "${pkgs-stable.rust.packages.stable.rustPlatform.rustLibSrc}";
     };
 }

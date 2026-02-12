@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs-stable, ... }:
 
 {
   xdg = {
@@ -7,7 +7,7 @@
       xdgOpenUsePortal = true;
       enable = true;
       extraPortals = [
-        pkgs.xdg-desktop-portal-xapp
+        pkgs-stable.xdg-desktop-portal-xapp
       ];
     };
   }; 

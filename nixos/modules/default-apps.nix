@@ -1,7 +1,7 @@
-{ config, pkgs, ... }:
+{ config, pkgs-stable, ... }:
 
 {
-    environment.systemPackages = with pkgs; [
+    environment.systemPackages = with pkgs-stable; [
         alacritty
         alacritty-theme
     ];

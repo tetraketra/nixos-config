@@ -1,10 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs-stable, ... }:
 
 {
     services.xserver.desktopManager.cinnamon.enable = true;
     services.cinnamon.apps.enable = true;
 
-    environment.cinnamon.excludePackages = with pkgs; [
+    environment.cinnamon.excludePackages = with pkgs-stable; [
         celluloid
         gnome-color-manager
         gnome-calendar
