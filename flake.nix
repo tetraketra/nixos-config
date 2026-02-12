@@ -18,7 +18,6 @@
         ... 
     }@inputs:
     let
-        lib = nixpkgs.lib;
         system = "x86_64-linux";
         pkgs-unstable = import inputs.nixpkgs-unstable {
             system = "x86_64-linux";
@@ -36,7 +35,7 @@
         hostSelection = ./. + "/nixos/hosts/${version}/hardware-configuration.nix";
     in {
         nixosConfigurations = {
-            myNixos = nixpkgs.lib.nixosSystem {
+            myNixos = nixpkgs-stable.lib.nixosSystem {
                 specialArgs = { 
                     inherit 
                     inputs 
