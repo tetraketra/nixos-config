@@ -3,10 +3,10 @@
 {
     imports = [
         ./hardware-configuration.nix
-        ./oauth-redirect.nix
-        ./cinnamon.nix
-        ./default-apps.nix
-        ./development.nix
+        ../oauth-redirect.nix
+        ../cinnamon.nix
+        ../default-apps.nix
+        ../development.nix
         inputs.home-manager.nixosModules.home-manager
     ];
 
@@ -95,7 +95,7 @@
     home-manager = {
         extraSpecialArgs = { inherit inputs; };
         users = {
-            tetraketra = import ./home.nix;
+            tetraketra = import ../home.nix;
         };
     };
 }

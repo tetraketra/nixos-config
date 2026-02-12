@@ -1,9 +1,9 @@
 { inputs, lib, pkgs, ... }:
 {
     home = {
-        packages = with pkgs; [
-            hello
-        ];
+        # packages = with pkgs; [
+        #     hello
+        # ];
 
         username = "tetraketra";
         homeDirectory = "/home/tetraketra";
