@@ -112,7 +112,7 @@
 
         users.tetraketra = {
             imports = [
-                ../home-manager/home.nix
+                ../homes/tetraketra.nix
             ];
             
             programs.home-manager.enable = true;
