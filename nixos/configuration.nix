@@ -64,6 +64,7 @@
         dconf
         dconf-editor
         dust
+        emote
         fastfetch
         firefox
         nemo
@@ -88,10 +89,7 @@
         useGlobalPkgs = true;
 
         users.tetraketra = {
-            imports = [
-                ../homes/tetraketra.nix
-            ];
-
+            imports = [ ../homes/tetraketra.nix ];
             home = {
                 username = "tetraketra";
                 homeDirectory = "/home/tetraketra";

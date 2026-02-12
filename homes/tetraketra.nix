@@ -1,4 +1,4 @@
-{ inputs, lib, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   keybinds-generator = bindlist:
@@ -19,16 +19,10 @@ let
     );
 in
 {
-    home = {
-        packages = with pkgs; [
-            hello
-        ];
-    };
-
-    programs.dconf.enable = true;
-    programs.dconf.settings = keybinds-generator [
-        { binding = ["<Primary><Alt>f"]; command = "firefox"; name = "Launch Firefox"; }
-        { binding = ["<Primary><Alt>c"]; command = "qalculate-gtk"; name = "Launch Qalculate-GTK (C)"; }
-        { binding = ["<Primary><Alt>q"]; command = "qalculate-gtk"; name = "Launch Qalculate-GTK (Q)"; }
+    dconf.enable = true;
+    dconf.settings = keybinds-generator [
+        { binding = ["<Primary><Alt>f"]; command = "firefox"; name = "Launch Firefox (F)"; }
+        { binding = ["<Primary><Alt>c"]; command = "qalculate-gtk -n"; name = "Launch Qalculate-GTK (C)"; }
+        { binding = ["<Primary><Alt>q"]; command = "qalculate-gtk -n"; name = "Launch Qalculate-GTK (Q)"; }
     ];
 }
