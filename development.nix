@@ -70,7 +70,7 @@
                     name = "shader";
                     publisher = "slevesque";
                     version = "1.1.5";
-                    sha256 = "sha256-FhH+pi2lVD7pZJMa4znJDz3S7Zqw8ltpYUMqW4FZlE0=";
+                    sha256 = "sha256-Pf37FeQMNlv74f7LMz9+CKscF6UjTZ7ZpcaZFKtX2ZM=";
                 }
             ];
         })
