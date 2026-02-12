@@ -12,7 +12,7 @@
     };
   }; 
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs-stable; [
     xdg-utils
     xdg-desktop-portal-xapp
   ];
