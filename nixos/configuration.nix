@@ -61,6 +61,7 @@
     
     # Define system packages.
     environment.systemPackages = (with pkgs-stable; [
+        btop
         dconf
         dconf-editor
         dust
@@ -69,6 +70,7 @@
         firefox
         nemo
         neovide
+        nvtop
         shutter
         wget
         zsh
