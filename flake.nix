@@ -19,11 +19,11 @@
     }@inputs:
     let
         system = "x86_64-linux";
-        pkgs = nixpkgs: import nixpkgs { inherit system; config.allowUnfree = true; };
+        pkgs-generator = nixpkgs: import nixpkgs { inherit system; config.allowUnfree = true; };
         version = builtins.replaceStrings ["\n"] [""] (builtins.readFile ./.host-selection);
         host-selection = ./. + "/nixos/hosts/${version}/hardware-configuration.nix";
-        pkgs-stable = pkgs inputs.nixpkgs-stable;
-        pkgs-unstable = pkgs inputs.nixpkgs-unstable;
+        pkgs-stable = pkgs-generator inputs.nixpkgs-stable;
+        pkgs-unstable = pkgs-generator inputs.nixpkgs-unstable;
     in {
         nixosConfigurations = {
             myNixos = nixpkgs-stable.lib.nixosSystem {
