@@ -25,7 +25,8 @@
         gnumake
         git
         github-desktop
-        vscode-with-extensions.override {
+        (vscode-with-extensions {
+            vscode = pkgs.vscode;
             extensions = with pkgs.vscode-extensions; [
                 usernamehw.errorlens
                 tamasfe.even-better-toml
@@ -43,7 +44,7 @@
                 serayuzgur.crates
                 njpwerner.autodocstring
             ];
-        }
+        })
     ];
     environment.sessionVariables = {
         RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
