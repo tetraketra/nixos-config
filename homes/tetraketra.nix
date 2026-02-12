@@ -34,6 +34,6 @@ in
         { binding = ["<Primary><Alt>q"]; command = "qalculate-gtk -n"; name = "Launch Qalculate-GTK (Q)"; }
         { binding = ["<Primary><Alt>b"]; command = "alacritty -e btop"; name = "Launch BTop (B)"; }
         { binding = ["<Primary><Alt>p"]; command = "pinta"; name = "Launch Pinta (P)"; }
-        { binding = ["<Primary><Alt>s"]; command = "shutter -s"; name = "Launch Shutter (S)"; }
+        { binding = ["<Primary><Shift>s"]; command = "shutter -s"; name = "Launch Shutter (S)"; }
     ];
 }
