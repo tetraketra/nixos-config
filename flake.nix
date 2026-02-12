@@ -21,7 +21,7 @@
             };
         };
         version = builtins.replaceStrings ["\n"] [""] (builtins.readFile ./.host-selection);
-        hostSelection = ./. + "/hosts/${version}/hardware-configuration.nix";
+        hostSelection = ./. + "/nixos/hosts/${version}/hardware-configuration.nix";
     in 
     {
         nixosConfigurations = {
