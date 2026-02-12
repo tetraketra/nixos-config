@@ -4,7 +4,7 @@ let
     customVscode = pkgs.vscode-with-extensions.override {
         vscodeExtensions = with pkgs.vscode-extensions; [
             usernamehw.errorlens
-            bbenoist.doxygen
+            # bbenoist.doxygen
             gerrnperl.outline-map
             tamasfe.even-better-toml
             file-icons.file-icons
