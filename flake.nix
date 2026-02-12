@@ -22,8 +22,7 @@
         };
         version = builtins.replaceStrings ["\n"] [""] (builtins.readFile ./.host-selection);
         hostSelection = ./. + "/nixos/hosts/${version}/hardware-configuration.nix";
-    in 
-    {
+    in {
         nixosConfigurations = {
             myNixos = nixpkgs.lib.nixosSystem {
                 specialArgs = { inherit inputs system hostSelection; };

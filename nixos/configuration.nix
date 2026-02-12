@@ -3,10 +3,10 @@
 {
     imports = [
         hostSelection
-        ./extras/oauth-redirect.nix
-        ./extras/cinnamon.nix
-        ./extras/default-apps.nix
-        ./extras/development.nix
+        ./modules/oauth-redirect.nix
+        ./modules/cinnamon.nix
+        ./modules/default-apps.nix
+        ./modules/development.nix
         inputs.home-manager.nixosModules.home-manager
     ];
 
