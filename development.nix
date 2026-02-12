@@ -61,7 +61,7 @@
                     sha256 = "sha256-FhH+pi2lVD7pZJMa4znJDz3S7Zqw8ltpYUMqW4FZlE0=";
                 }
                 {
-                    name = "outline";
+                    name = "outline-map";
                     publisher = "gerrnperl";
                     version = "1.4.2";
                     sha256 = "sha256-F1JmOxyfa9u2sEWiW2esHRONUNYRjME/X/KJ33MaW/M=";
