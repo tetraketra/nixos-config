@@ -14,6 +14,7 @@ in
     ];
 
     programs.dconf.profiles.user.databases = [{
+        # TODO: SOON TO BE CONVERTED TO HOME-MANAGER ACTUAL USER PROFILE (*NOT JUST DEFAULTS*)
         settings = {
             "org/cinnamon/desktop/applications/terminal" = {
                 exec = "alacritty";
