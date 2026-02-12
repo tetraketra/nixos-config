@@ -16,7 +16,7 @@
     ];
 
     # Theming.
-    environment.systemPackages = with pkgs; [
+    environment.systemPackages = with pkgs-stable; [
         dconf
         dconf-editor
         mint-themes
