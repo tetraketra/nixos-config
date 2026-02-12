@@ -6,6 +6,7 @@
         ./oauth-redirect.nix
         ./cinnamon.nix
         ./default-apps.nix
+        ./rust.nix
     ];
 
     # Foundation

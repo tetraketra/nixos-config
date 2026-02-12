@@ -22,5 +22,6 @@ echo "🏗️  Rebuilding."
 nixos-rebuild switch
 dconf reset -f /org/gnome/desktop/interface/
 dconf reset -f /org/cinnamon/desktop/applications/
+
 # Final.
 echo "✅ Complete!"
