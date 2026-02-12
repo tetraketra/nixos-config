@@ -8,8 +8,8 @@ let
     keybinds-generator = bind-list: 
         let
             lists = pkgs-stable.lib.lists;
-            custom-names = (map (i: "'custom${toString i}'") (lists.range 0 (builtins.length bind-list - 1)));
-            custom-str = builtins.concatStringsSep ", " custom-names;
+            custom-names = (map (i: "custom${toString i}") (lists.range 0 (builtins.length bind-list - 1)));
+            custom-str = builtins.concatStringsSep ", " (map (n: "'${n}'") custom-names);
             custom-zipped = lists.zipListsWith (n: b: { name=n; bind=b; }) custom-names bind-list;
 
             settings = {
