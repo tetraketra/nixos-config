@@ -7,23 +7,27 @@ let
     # Where `bind-list` like `[ {binding="", command="", name=""}, {...similar...}, ... ]`.
     keybinds-generator = bind-list: 
         let
-            custom-names = (map (i: "'custom${i}'") (builtins.range 0 (builtins.length bind-list - 1)));
+            lists = pkgs-stable.lib.lists;
+            custom-names = (map (i: "'custom${toString i}'") (lists.range 0 (builtins.length bind-list - 1)));
             custom-str = builtins.concatStringsSep ", " custom-names;
+            custom-zipped = lists.zipListsWith (n: b: { name=n; bind=b; }) custom-names bind-list;
+
             settings = {
                 "org/cinnamon/desktop/keybindings" = {
                     custom-list = "[${custom-str}]";
                 };
-            };
-            
-            zipped = pkgs-stable.lib.list.zipListsWith (a: b: a + b) custom-names bind-list;
+            } // builtins.listToAttrs (
+                map (item: {
+                    name = "org/cinnamon/desktop/keybindings/custom-keybindings/${item.name}";
+                    value = {
+                        binding = item.bind.binding;
+                        command = item.bind.command;
+                        name = item.bind.name;
+                    };
+                }) custom-zipped
+            );
         in
-            zipped
-            # settings
-            # "org/cinnamon/desktop/keybindings/custom-keybindings/custom0" = {
-            #     binding="['<Primary><Alt>t']";
-            #     command="alacritty -e";
-            #     name="Launch Alacritty";
-            # };
+            settings
     ;
 in
 {
@@ -36,33 +40,22 @@ in
     ];
 
     programs.dconf.profiles.user.databases = [{
-        # TODO: SOON TO BE CONVERTED TO HOME-MANAGER ACTUAL USER PROFILE (*NOT JUST DEFAULTS*)
+        # TODO: TO BE CONVERTED TO HOME-MANAGER ACTUAL USER PROFILE (*NOT JUST DEFAULTS*)
         settings = {
-            # FIXME GARBO
-            "not/real/header" = {
-                not-real = keybinds-generator [ "foo" "bar" ];
-            };
-            # FIXME GARBO
-
             "org/cinnamon/desktop/applications/terminal" = {
                 exec = "alacritty";
                 exec-arg = "--";
             };
 
-            "org/cinnamon/desktop/keybindings" = {
-                custom-list = "['custom0']";
-            };
-
-            "org/cinnamon/desktop/keybindings/custom-keybindings/custom0" = {
-                binding="['<Primary><Alt>t']";
-                command="alacritty -e";
-                name="Launch Alacritty";
-            };
-
             "org/cinnamon/desktop/applications/calculator" = {
                 exec = "qalculate-gtk";
-            };
-        };
+            };            
+        } // keybinds-generator [
+            { binding="['<Primary><Alt>t']"; command="alacritty -e"; name="Launch Alacritty"; }
+            { binding="['<Primary><Alt>f']"; command="firefox"; name="Launch Firefox"; }
+            { binding="['<Primary><Alt>c']"; command="qalculate-gtk"; name="Launch Qalculate-GTK (C)"; }
+            { binding="['<Primary><Alt>q']"; command="qalculate-gtk"; name="Launch Qalculate-GTK (Q)"; }
+        ];
 
     }];
 
