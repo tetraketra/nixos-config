@@ -9,12 +9,12 @@ let
         let
             lists = pkgs-stable.lib.lists;
             custom-names = (map (i: "custom${toString i}") (lists.range 0 (builtins.length bind-list - 1)));
-            custom-str = builtins.concatStringsSep ", " (map (n: "'${n}'") custom-names);
+            # custom-str = builtins.concatStringsSep ", " (map (n: "'${n}'") custom-names);
             custom-zipped = lists.zipListsWith (n: b: { name=n; bind=b; }) custom-names bind-list;
 
             settings = {
                 "org/cinnamon/desktop/keybindings" = {
-                    custom-list = "[${custom-str}]";
+                    custom-list = custom-names;
                 };
             } // builtins.listToAttrs (
                 map (item: {
@@ -51,12 +51,11 @@ in
                 exec = "qalculate-gtk";
             };            
         } // keybinds-generator [
-            { binding="['<Primary><Alt>t']"; command="alacritty -e"; name="Launch Alacritty"; }
-            { binding="['<Primary><Alt>f']"; command="firefox"; name="Launch Firefox"; }
-            { binding="['<Primary><Alt>c']"; command="qalculate-gtk"; name="Launch Qalculate-GTK (C)"; }
-            { binding="['<Primary><Alt>q']"; command="qalculate-gtk"; name="Launch Qalculate-GTK (Q)"; }
+            { binding=["<Primary><Alt>t"]; command="alacritty -e"; name="Launch Alacritty"; }
+            { binding=["<Primary><Alt>f"]; command="firefox"; name="Launch Firefox"; }
+            { binding=["<Primary><Alt>c"]; command="qalculate-gtk"; name="Launch Qalculate-GTK (C)"; }
+            { binding=["<Primary><Alt>q"]; command="qalculate-gtk"; name="Launch Qalculate-GTK (Q)"; }
         ];
-
     }];
 
     xdg.mime.defaultApplications = builtins.listToAttrs (
