@@ -69,8 +69,7 @@
         fastfetch
         firefox
         nemo
-        neovide
-        nvtop
+        neovide # I should really learn Vim keybinds sometime.
         shutter
         wget
         zsh

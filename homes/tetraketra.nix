@@ -24,6 +24,6 @@ in
         { binding = ["<Primary><Alt>f"]; command = "firefox"; name = "Launch Firefox (F)"; }
         { binding = ["<Primary><Alt>c"]; command = "qalculate-gtk -n"; name = "Launch Qalculate-GTK (C)"; }
         { binding = ["<Primary><Alt>q"]; command = "qalculate-gtk -n"; name = "Launch Qalculate-GTK (Q)"; }
-        { binding = ["<Primary><Alt>b"]; command = "alacritty -e btop"; name = "Launch BTop (Q)"; }
+        { binding = ["<Primary><Alt>b"]; command = "alacritty -e btop"; name = "Launch BTop (B)"; }
     ];
 }
