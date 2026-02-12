@@ -90,4 +90,12 @@
         neovide # I need to learn Vim keybinds at some point T>T
         home-manager
     ];
+
+    # Home Manager
+    home-manager = {
+        extraSpecialArgs = { inherit inputs; };
+        users = {
+            tetraketra = import ./home.nix;
+        };
+    }
 }
