@@ -58,6 +58,8 @@
     system.stateVersion = "25.11";
 
     nixpkgs.config.allowUnfree = true;
+    
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
     # Define user account.
     programs.zsh.enable = true;
@@ -85,5 +87,6 @@
         dust
         fastfetch
         neovide # I need to learn Vim keybinds at some point T>T
+        home-manager
     ];
 }
