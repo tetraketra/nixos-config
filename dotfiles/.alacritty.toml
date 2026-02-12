@@ -1,0 +1,8 @@
+[general]
+import = [
+    "~/.config/alacritty/themes/themes/alabaster_dark.toml"
+]
+
+[colors]
+cursor = { text = "CellBackground", cursor = "#aa759f" }
+selection = { text = "CellBackground", background = "#aa759f" }

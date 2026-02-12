@@ -59,13 +59,11 @@
     nixpkgs.config.allowUnfree = true;
 
     # Define user account.
-    # programs.zsh.enable = true;
-
     users.users.tetraketra = {
         isNormalUser = true;
         description = "TetraKetra";
         extraGroups = [ "networkmanager" "wheel" ];
-        # shell = pkgs.zsh;
+        shell = pkgs.zsh;
     };
 
     # Define system packages.
@@ -82,5 +80,9 @@
         vlc
         qalculate-gtk
         gimp2-with-plugins
+        zsh
+        zsh-z
+        zsh-wd
+        zsh-bd
     ];
 }
