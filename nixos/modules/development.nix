@@ -1,7 +1,7 @@
 { config, pkgs-stable, ... }:
 
 let
-    extension-generator = name: publisher: version: sha256: {
+    extension-generator = publisher: name: version: sha256: {
         name = name; 
         publisher = publisher; 
         version = version; 
@@ -66,10 +66,10 @@ in
                 # 1. RMB Extension > Download Specific Version VSIX
                 # 2. openssl dgst -sha256 -binary [YOUR_FILE_HERE] | openssl base64 -A
                 # 3. sha2560-[YOUR_THING_HERE]
-                (extension-generator "python-envy" "teticio" "0.1.11" "sha256-grkusc1UWWxpD25f4bnoBSumjwKuIum+jRMJ+gt1d94=")
-                (extension-generator "doxygen" "bbenoist" "1.0.0" "sha256-FhH+pi2lVD7pZJMa4znJDz3S7Zqw8ltpYUMqW4FZlE0=")
-                (extension-generator "outline-map" "gerrnperl" "1.4.2" "sha256-F1JmOxyfa9u2sEWiW2esHRONUNYRjME/X/KJ33MaW/M=")
-                (extension-generator "shader" "slevesque" "1.1.5" "sha256-Pf37FeQMNlv74f7LMz9+CKscF6UjTZ7ZpcaZFKtX2ZM=")
+                (extension-generator "teticio" "python-envy" "0.1.11" "sha256-grkusc1UWWxpD25f4bnoBSumjwKuIum+jRMJ+gt1d94=")
+                (extension-generator "bbenoist" "doxygen" "1.0.0" "sha256-FhH+pi2lVD7pZJMa4znJDz3S7Zqw8ltpYUMqW4FZlE0=")
+                (extension-generator "gerrnperl" "outline-map" "1.4.2" "sha256-F1JmOxyfa9u2sEWiW2esHRONUNYRjME/X/KJ33MaW/M=")
+                (extension-generator "slevesque" "shader" "1.1.5" "sha256-Pf37FeQMNlv74f7LMz9+CKscF6UjTZ7ZpcaZFKtX2ZM=")
             ];
         })
     ];
