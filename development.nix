@@ -42,6 +42,13 @@
                 rust-lang.rust-analyzer
                 serayuzgur.crates
                 njpwerner.autodocstring
+            ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+                {
+                    name = "python-envy";
+                    publisher = "teticio";
+                    version = "0.1.11";
+                    sha256 = "82b92eb1cd54596c690f6e5fe1b9e8052ba68f02ae22e9be8d1309fa0b7577de";
+                }
             ];
         })
     ];
