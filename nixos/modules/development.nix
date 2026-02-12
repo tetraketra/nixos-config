@@ -1,7 +1,7 @@
 { config, pkgs-stable, ... }:
 
 {
-    environment.systemPackages = with pkgs; [
+    environment.systemPackages = with pkgs-stable; [
         # C.
         nix-ld
         libgcc
