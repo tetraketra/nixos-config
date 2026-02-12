@@ -31,6 +31,8 @@ let
     ;
 in
 {
+    keybinds-generator [ "foo" "bar" ];
+
     environment.systemPackages = with pkgs-stable; [
         alacritty
         alacritty-theme
