@@ -9,26 +9,22 @@ let
         let
             lists = pkgs-stable.lib.lists;
             custom-names = (map (i: "custom${toString i}") (lists.range 0 (builtins.length bind-list - 1)));
-            # custom-str = builtins.concatStringsSep ", " (map (n: "'${n}'") custom-names);
             custom-zipped = lists.zipListsWith (n: b: { name=n; bind=b; }) custom-names bind-list;
 
-            settings = {
-                "org/cinnamon/desktop/keybindings" = {
-                    custom-list = custom-names;
+        in {
+            "org/cinnamon/desktop/keybindings" = {
+                custom-list = custom-names;
+            };
+        } // builtins.listToAttrs (
+            map (item: {
+                name = "org/cinnamon/desktop/keybindings/custom-keybindings/${item.name}";
+                value = {
+                    binding = item.bind.binding;
+                    command = item.bind.command;
+                    name = item.bind.name;
                 };
-            } // builtins.listToAttrs (
-                map (item: {
-                    name = "org/cinnamon/desktop/keybindings/custom-keybindings/${item.name}";
-                    value = {
-                        binding = item.bind.binding;
-                        command = item.bind.command;
-                        name = item.bind.name;
-                    };
-                }) custom-zipped
-            );
-        in
-            settings
-    ;
+            }) custom-zipped
+        );
 in
 {
     environment.systemPackages = with pkgs-stable; [
