@@ -7,7 +7,6 @@ echo "🚚 Moving repo to \`/etc/nixos\`."
 [ -f /etc/nixos ] && sudo mv /etc/nixos /etc/nixos.bak
 sudo rm -rf /etc/nixos
 sudo cp -r $REPO_HOME /etc/nixos
-sudo cp /etc/nixos/hosts/$1/hardware-configuration.nix /etc/nixos/hardware-configuration.nix
 
 # Move dotfiles.
 echo "🔗 Linking dotfiles."
@@ -19,7 +18,7 @@ ln -sf $REPO_HOME/dotfiles/.zshrc $USER_HOME/.zshrc
 
 # Rebuild.
 echo "🏗️  Rebuilding."
-nixos-rebuild switch --flake /etc/nixos/flake.nix#myNixos --impure
+nixos-rebuild switch --flake /etc/nixos/#myNixos --impure
 dconf reset -f /org/gnome/desktop/interface/
 dconf reset -f /org/cinnamon/desktop/applications/
 
