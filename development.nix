@@ -30,7 +30,6 @@
 
     programs.vscode = {
         enable = true;
-        mutableExtensionsDir = false;
         extensions = with pkgs.vscode-extensions; [
             usernamehw.errorlens
             tamasfe.even-better-toml
