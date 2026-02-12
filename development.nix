@@ -25,9 +25,8 @@
         gnumake
         git
         github-desktop
-        (vscode-with-extensions {
-            vscode = pkgs.vscode;
-            extensions = with pkgs.vscode-extensions; [
+        (vscode-with-extensions.override {
+            vscodeExtensions = with vscode-extensions; [
                 usernamehw.errorlens
                 tamasfe.even-better-toml
                 file-icons.file-icons
