@@ -15,14 +15,10 @@ let
                 };
             };
             
-            zipped = zipListsWith () custom-names bind-list;
-            builtins.trace "Debug message: ${toString zipped}" zipped
-            # } // builtins.listToAttrs (
-            #     map ()
-            # );
-
+            zipped = zipListsWith (a: b: a + b) custom-names bind-list;
         in
-            settings
+            zipped
+            # settings
             # "org/cinnamon/desktop/keybindings/custom-keybindings/custom0" = {
             #     binding="['<Primary><Alt>t']";
             #     command="alacritty -e";
@@ -31,8 +27,6 @@ let
     ;
 in
 {
-    keybinds-generator [ "foo" "bar" ];
-
     environment.systemPackages = with pkgs-stable; [
         alacritty
         alacritty-theme
@@ -44,6 +38,12 @@ in
     programs.dconf.profiles.user.databases = [{
         # TODO: SOON TO BE CONVERTED TO HOME-MANAGER ACTUAL USER PROFILE (*NOT JUST DEFAULTS*)
         settings = {
+            # FIXME GARBO
+            "not/real/header" = {
+                not-real = keybinds-generator [ "foo" "bar" ];
+            };
+            # FIXME GARBO
+
             "org/cinnamon/desktop/applications/terminal" = {
                 exec = "alacritty";
                 exec-arg = "--";
