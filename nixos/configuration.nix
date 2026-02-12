@@ -1,8 +1,8 @@
-{ inputs, config, pkgs, ... }:
+{ inputs, config, pkgs, hostSelection, ... }:
 
 {
     imports = [
-        ./hardware-configuration.nix
+        hostSelection
         ./extras/oauth-redirect.nix
         ./extras/cinnamon.nix
         ./extras/default-apps.nix

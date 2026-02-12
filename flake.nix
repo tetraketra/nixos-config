@@ -20,11 +20,13 @@
                 allowUnfree = true;
             };
         };
+        version = builtins.replaceStrings ["\n"] [""] (builtins.readFile ./.host-selection);
+        hostSelection = ./. + "/hosts/${version}/hardware-configuration.nix";
     in 
     {
         nixosConfigurations = {
             myNixos = nixpkgs.lib.nixosSystem {
-                specialArgs = { inherit inputs system; };
+                specialArgs = { inherit inputs system hostSelection; };
                 modules = [ ./nixos/configuration.nix ];
             };
         };
