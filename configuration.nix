@@ -67,17 +67,13 @@
         extraGroups = [ "networkmanager" "wheel" ];
         shell = pkgs.zsh;
     };
-
+    
     # Define system packages.
     environment.systemPackages = with pkgs; [
-        git
-        github-desktop
         nemo
         shutter
-        vscode-with-extensions
         wget
         zsh
-        gnumake
         firefox
         vlc
         qalculate-gtk
@@ -88,6 +84,6 @@
         zsh-bd
         dust
         fastfetch
-        neovide
+        neovide # I need to learn Vim keybinds at some point T>T
     ];
 }
