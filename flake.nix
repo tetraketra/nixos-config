@@ -21,7 +21,7 @@
         system = "x86_64-linux";
         pkgs = nixpkgs: import nixpkgs { inherit system; config.allowUnfree = true; };
         version = builtins.replaceStrings ["\n"] [""] (builtins.readFile ./.host-selection);
-        hostSelection = "./nixos/hosts/${version}/hardware-configuration.nix";
+        hostSelection = ./. + "/nixos/hosts/${version}/hardware-configuration.nix";
         pkgs-stable = pkgs inputs.nixpkgs-stable;
         pkgs-unstable = pkgs inputs.nixpkgs-unstable;
     in {
