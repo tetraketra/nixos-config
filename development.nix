@@ -22,33 +22,29 @@
         glfw
         raylib
         # Dev.
-        vscode
         gnumake
         git
         github-desktop
+        vscode-with-extensions.override {
+            extensions = with pkgs.vscode-extensions; [
+                usernamehw.errorlens
+                tamasfe.even-better-toml
+                file-icons.file-icons
+                # Nix.
+                bbenoist.nix
+                # C.
+                ms-vscode.cpptools-extension-pack
+                mesonbuild.mesonbuild
+                # Python.
+                charliermarsh.ruff
+                ms-python.python
+                # Rust.
+                rust-lang.rust-analyzer
+                serayuzgur.crates
+                njpwerner.autodocstring
+            ];
+        }
     ];
-
-    programs.vscode = {
-        enable = true;
-        extensions = with pkgs.vscode-extensions; [
-            usernamehw.errorlens
-            tamasfe.even-better-toml
-            file-icons.file-icons
-            # Nix.
-            bbenoist.nix
-            # C.
-            ms-vscode.cpptools-extension-pack
-            mesonbuild.mesonbuild
-            # Python.
-            charliermarsh.ruff
-            ms-python.python
-            # Rust.
-            rust-lang.rust-analyzer
-            serayuzgur.crates
-            njpwerner.autodocstring
-        ];
-    };
-
     environment.sessionVariables = {
         RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
     };
