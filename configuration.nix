@@ -59,6 +59,7 @@
     nixpkgs.config.allowUnfree = true;
 
     # Define user account.
+    programs.zsh.enable = true;
     users.users.tetraketra = {
         isNormalUser = true;
         description = "TetraKetra";
