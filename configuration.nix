@@ -86,5 +86,8 @@
         zsh-z
         zsh-wd
         zsh-bd
+        dust
+        fastfetch
+        neovide
     ];
 }
