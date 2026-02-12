@@ -13,7 +13,8 @@ let
 
         in {
             "org/cinnamon/desktop/keybindings" = {
-                custom-list = custom-names;
+                custom-list = ["__dummy__"] ++ custom-names;
+                show-desklets = "@as []";
             };
         } // builtins.listToAttrs (
             map (item: {
