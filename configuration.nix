@@ -7,7 +7,7 @@
         ./cinnamon.nix
         ./default-apps.nix
         ./development.nix
-        inputs.homne-manager.nixosModules.home-manager
+        inputs.home-manager.nixosModules.home-manager
     ];
 
     # Foundation
