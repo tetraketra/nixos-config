@@ -1,26 +1,5 @@
 { config, pkgs, ... }:
 
-let
-    customVscode = pkgs.vscode-with-extensions.override {
-        vscodeExtensions = with pkgs.vscode-extensions; [
-            usernamehw.errorlens
-            tamasfe.even-better-toml
-            file-icons.file-icons
-            # Nix.
-            bbenoist.nix
-            # C.
-            ms-vscode.cpptools-extension-pack
-            mesonbuild.mesonbuild
-            # Python.
-            charliermarsh.ruff
-            ms-python.python
-            # Rust.
-            rust-lang.rust-analyzer
-            serayuzgur.crates
-            njpwerner.autodocstring
-        ];
-    };
-in
 {
     environment.systemPackages = with pkgs; [
         # C.
@@ -43,11 +22,33 @@ in
         glfw
         raylib
         # Dev.
-        customVscode
+        vscode
         gnumake
         git
         github-desktop
     ];
+
+    programs.vscode = {
+        enable = true;
+        mutableExtensionsDir = false;
+        extensions = with pkgs.vscode-extensions; [
+            usernamehw.errorlens
+            tamasfe.even-better-toml
+            file-icons.file-icons
+            # Nix.
+            bbenoist.nix
+            # C.
+            ms-vscode.cpptools-extension-pack
+            mesonbuild.mesonbuild
+            # Python.
+            charliermarsh.ruff
+            ms-python.python
+            # Rust.
+            rust-lang.rust-analyzer
+            serayuzgur.crates
+            njpwerner.autodocstring
+        ];
+    };
 
     environment.sessionVariables = {
         RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
