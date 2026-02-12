@@ -44,30 +44,34 @@
                 fill-labs.dependi
                 njpwerner.autodocstring
             ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+                # RMB Extension
+                # > Download Specific Version VSIX
+                # > `openssl dgst -sha256 -binary [YOUR_FILE_HERE] | openssl base64 -A` 
+                # > "sha2560-[YOUR_THING_HERE]"
                 {
                     name = "python-envy";
                     publisher = "teticio";
                     version = "0.1.11";
-                    sha256 = "82b92eb1cd54596c690f6e5fe1b9e8052ba68f02ae22e9be8d1309fa0b7577de";
+                    sha256 = "sha256-grkusc1UWWxpD25f4bnoBSumjwKuIum+jRMJ+gt1d94=";
                 }
                 {
                     name = "doxygen";
                     publisher = "bbenoist";
                     version = "1.0.0";
-                    sha256 = "1611fea62da5543ee964931ae339c90f3dd2ed9ab0f25b6961432a5b8159944d";
+                    sha256 = "sha256-FhH+pi2lVD7pZJMa4znJDz3S7Zqw8ltpYUMqW4FZlE0=";
                 }
                 {
                     name = "outline";
                     publisher = "gerrnperl";
                     version = "1.4.2";
-                    sha256 = "1752663b1c9f6bdbb6b045a25b67ac1d138d50d6118cc13f5ff289df731a5bf3";
+                    sha256 = "sha256-F1JmOxyfa9u2sEWiW2esHRONUNYRjME/X/KJ33MaW/M=";
                 }
-                # {
-                #     name = "shader";
-                #     publisher = "slevesque";
-                #     version = "1.1.5";
-                #     sha256 = "3dfdfb15e40c365bfbe1fecb333f7e08ab1c17a5234d9ed9a5c69914ab57d993";
-                # }
+                {
+                    name = "shader";
+                    publisher = "slevesque";
+                    version = "1.1.5";
+                    sha256 = "sha256-FhH+pi2lVD7pZJMa4znJDz3S7Zqw8ltpYUMqW4FZlE0=";
+                }
             ];
         })
     ];
