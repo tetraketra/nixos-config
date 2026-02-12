@@ -1,5 +1,34 @@
 { config, pkgs, ... }:
 
+let
+    customVscode = pkgs.vscode-with-extensions.override {
+        vscodeExtensions = with pkgs.vscode-extensions; [
+            usernamehw.errorlens
+            bbenoist.doxygen
+            gerrnperl.outline-map
+            tamasfe.even-better-toml
+            file-icons.file-icons
+            slevesque.shade
+            vadimcn.vscode-lldb
+            # SQL.
+            adpyke.vscode-sql-formatter
+            qwtel.sqlite-viewer
+            # Nix.
+            bbenoist.nix
+            # C.
+            ms-vscode.cpptools-extension-pack
+            mesonbuild.mesonbuild
+            # Python.
+            charliermarsh.ruff
+            ms-python.python
+            teticio.python-envy
+            # Rust.
+            (vscode-extensions."1yib.rust-bundle")
+            dustypomerleau.rust-syntax
+            jscearcy.rust-doc-viewer
+        ];
+    };
+in
 {
     environment.systemPackages = with pkgs; [
         # C.
@@ -22,39 +51,10 @@
         glfw
         raylib
         # Dev.
-        vscode-with-extensions
+        customVscode
         gnumake
         git
         github-desktop
-        # VSCode Config
-        vscode-with-extensions.override {
-            vscodeExtensions = with vscode-extensions; [
-                usernamehw.errorlens
-                bbenoist.doxygen
-                gerrnperl.outline-map
-                tamasfe.even-better-toml
-                file-icons.file-icons
-                slevesque.shade
-                vadimcn.vscode-lldb
-                # SQL.
-                adpyke.vscode-sql-formatter
-                qwtel.sqlite-viewer
-                # Nix.
-                bbenoist.nix
-                # C.
-                ms-vscode.cpptools-extension-pack
-                mesonbuild.mesonbuild
-                # Python.
-                charliermarsh.ruff
-                ms-python.python
-                teticio.python-envy
-                # Rust.
-                (vscode-extensions."1yib.rust-bundle")
-                dustypomerleau.rust-syntax
-                jscearcy.rust-doc-viewer
-                
-            ];
-        }
     ];
 
     environment.sessionVariables = {
