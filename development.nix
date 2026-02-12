@@ -26,13 +26,7 @@
         gnumake
         git
         github-desktop
-    ];
-
-    environment.sessionVariables = {
-        RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
-    };
-
-    environment.systemPackages = with pkgs; [(
+        # VSCode Config
         vscode-with-extensions.override {
             vscodeExtensions = with vscode-extensions; [
                 usernamehw.errorlens
@@ -61,5 +55,8 @@
                 
             ];
         }
-    )];
-}
+    ];
+
+    environment.sessionVariables = {
+        RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
+    };
