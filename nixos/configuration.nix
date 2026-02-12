@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, hostSelection, ... }:
+{ inputs, config, pkgs-stable, pkgs-unstable, hostSelection, ... }:
 
 {
     imports = [
@@ -72,7 +72,8 @@
     };
     
     # Define system packages.
-    environment.systemPackages = with pkgs; [
+    environment.systemPackages = 
+    (with pkgs-stable; [
         nemo
         shutter
         wget
@@ -88,14 +89,39 @@
         dust
         fastfetch
         neovide # I need to learn Vim keybinds at some point T>T
-        home-manager
-    ];
+    ])
+    ++
+    (with pkgs-unstable; [
+        # If you need any!
+    ])
+    ;
 
     # Home Manager
     home-manager = {
-        extraSpecialArgs = { inherit inputs; };
-        users = {
-            tetraketra = import ../home-manager/home.nix;
+        extraSpecialArgs = { 
+            inherit 
+            inputs
+            pkgs-unstable
+            pkgs-stable
+            ; 
+        };
+
+        useGlobalPkgs = true;
+        useUserPackages = true;
+        backupFileExtension = "backup";
+
+        users.tetraketra = {
+            imports = [
+                ../home-manager/home.nix
+            ];
+            
+            programs.home-manager.enable = true;
+
+            home = {
+                username = "tetraketra";
+                homeDirectory = "/home/tetraketra";
+                stateVersion = "23.11";
+            };
         };
     };
 }
