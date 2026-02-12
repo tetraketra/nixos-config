@@ -15,7 +15,7 @@ let
                 };
             };
             
-            zipped = zipListsWith (a: b: a + b) custom-names bind-list;
+            zipped = pkgs-stable.lib.list.zipListsWith (a: b: a + b) custom-names bind-list;
         in
             zipped
             # settings

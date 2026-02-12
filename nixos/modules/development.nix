@@ -25,7 +25,6 @@ in
 
         # == python ====
         python312
-        python27
         uv
 
         # == games =====
