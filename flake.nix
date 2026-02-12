@@ -22,10 +22,9 @@
         pkgs = nixpkgs: import nixpkgs { inherit system; config.allowUnfree = true; };
         version = builtins.trim (builtins.readFile ./.host-selection);
         hostSelection = "./nixos/hosts/${version}/hardware-configuration.nix";
-    in {
         pkgs-stable = pkgs inputs.nixpkgs-stable;
         pkgs-unstable = pkgs inputs.nixpkgs-unstable;
-
+    in {
         nixosConfigurations = {
             myNixos = nixpkgs-stable.lib.nixosSystem {
                 specialArgs = { 
