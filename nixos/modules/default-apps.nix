@@ -4,28 +4,28 @@ let
     image-types = [ "png" "jpeg" "jpg" "gif" "svg+xml" "bmp" "webp" "tiff" "x-icon" "vnd.microsoft.icon" "heif" "heic" "avif" "x-pcx" "x-pnm" "x-portable-bitmap" "x-portable-graymap" "x-portable-pixmap" "x-xbitmap" "x-xpixmap" ];
     image-formats = map (type: "image/${type}") image-types;
 
-    # Where `bind-list` like `[ {binding="", command="", name=""}, {...similar...}, ... ]`.
-    keybinds-generator = bind-list: 
-        let
-            lists = pkgs-stable.lib.lists;
-            custom-names = (map (i: "custom${toString i}") (lists.range 0 (builtins.length bind-list - 1)));
-            custom-zipped = lists.zipListsWith (n: b: { name=n; bind=b; }) custom-names bind-list;
+    keybindings = [
+        { binding=["<Primary><Alt>t"]; command="alacritty -e"; name="Launch Alacritty"; }
+        { binding=["<Primary><Alt>f"]; command="firefox"; name="Launch Firefox"; }
+        { binding=["<Primary><Alt>c"]; command="qalculate-gtk"; name="Launch Qalculate-GTK (C)"; }
+        { binding=["<Primary><Alt>q"]; command="qalculate-gtk"; name="Launch Qalculate-GTK (Q)"; }
+    ];
 
-        in {
-            "org/cinnamon/desktop/keybindings" = {
-                custom-list = ["__dummy__" "asdf"] ++ custom-names;
-                show-desklets = "@as []";
+    custom-names = map (i: "custom${toString i}") (builtins.range 0 (builtins.length keybindings - 1));
+    zipped = pkgs-stable.lib.lists.zipListsWith (name: bind: { name=name; bind=bind; }) custom-names keybindings;
+
+    generated-keybinds = {
+        "org/cinnamon/desktop/keybindings" = { custom-list = custom-names; };
+    } // builtins.listToAttrs (
+        map (item: {
+            name = "org/cinnamon/desktop/keybindings/custom-keybindings/${item.name}";
+            value = {
+                binding = item.bind.binding;
+                command = item.bind.command;
+                name = item.bind.name;
             };
-        } // builtins.listToAttrs (
-            map (item: {
-                name = "org/cinnamon/desktop/keybindings/custom-keybindings/${item.name}";
-                value = {
-                    binding = item.bind.binding;
-                    command = item.bind.command;
-                    name = item.bind.name;
-                };
-            }) custom-zipped
-        );
+        }) zipped
+    );
 in
 {
     environment.systemPackages = with pkgs-stable; [
@@ -47,12 +47,7 @@ in
             "org/cinnamon/desktop/applications/calculator" = {
                 exec = "qalculate-gtk";
             };            
-        } // keybinds-generator [
-            { binding=["<Primary><Alt>t"]; command="alacritty -e"; name="Launch Alacritty"; }
-            { binding=["<Primary><Alt>f"]; command="firefox"; name="Launch Firefox"; }
-            { binding=["<Primary><Alt>c"]; command="qalculate-gtk"; name="Launch Qalculate-GTK (C)"; }
-            { binding=["<Primary><Alt>q"]; command="qalculate-gtk"; name="Launch Qalculate-GTK (Q)"; }
-        ];
+        } // generated-keybinds;
     }];
 
     xdg.mime.defaultApplications = builtins.listToAttrs (
