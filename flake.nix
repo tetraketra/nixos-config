@@ -21,14 +21,14 @@
         system = "x86_64-linux";
         pkgs = nixpkgs: import nixpkgs { inherit system; config.allowUnfree = true; };
         version = builtins.replaceStrings ["\n"] [""] (builtins.readFile ./.host-selection);
-        hostSelection = ./. + "/nixos/hosts/${version}/hardware-configuration.nix";
+        host-selection = ./. + "/nixos/hosts/${version}/hardware-configuration.nix";
         pkgs-stable = pkgs inputs.nixpkgs-stable;
         pkgs-unstable = pkgs inputs.nixpkgs-unstable;
     in {
         nixosConfigurations = {
             myNixos = nixpkgs-stable.lib.nixosSystem {
                 specialArgs = { 
-                    inherit inputs hostSelection pkgs-stable pkgs-unstable; 
+                    inherit inputs host-selection pkgs-stable pkgs-unstable; 
                 };
                 modules = [ ./nixos/configuration.nix ];
             };

@@ -1,8 +1,8 @@
-{ inputs, config, pkgs-stable, pkgs-unstable, hostSelection, ... }:
+{ inputs, config, pkgs-stable, pkgs-unstable, host-selection, ... }:
 
 {
     imports = [
-        hostSelection
+        host-selection
         ./modules/oauth-redirect.nix
         ./modules/cinnamon.nix
         ./modules/default-apps.nix
@@ -21,23 +21,12 @@
     time.timeZone = "America/New_York";
 
     i18n.defaultLocale = "en_US.UTF-8";
-    i18n.extraLocaleSettings = {
-        LC_ADDRESS = "en_US.UTF-8";
-        LC_IDENTIFICATION = "en_US.UTF-8";
-        LC_MEASUREMENT = "en_US.UTF-8";
-        LC_MONETARY = "en_US.UTF-8";
-        LC_NAME = "en_US.UTF-8";
-        LC_NUMERIC = "en_US.UTF-8";
-        LC_PAPER = "en_US.UTF-8";
-        LC_TELEPHONE = "en_US.UTF-8";
-        LC_TIME = "en_US.UTF-8";
-    };
 
     security.rtkit.enable = true;
 
     services.xserver.enable = true;
     services.xserver.displayManager.lightdm.enable = true;
-    services.displayManager = {
+    services.displayManager = { # The location of these was changed recently.
         autoLogin.enable = true;
         autoLogin.user = "tetraketra";
     };
@@ -47,7 +36,6 @@
         variant = "";
     };
 
-    services.pulseaudio.enable = false;
     services.printing.enable = true;
     services.pipewire = {
         enable = true;
@@ -72,50 +60,38 @@
     };
     
     # Define system packages.
-    environment.systemPackages = 
-    (with pkgs-stable; [
-        nemo
-        shutter
-        wget
-        zsh
-        firefox
-        vlc
-        qalculate-gtk
-        gimp2-with-plugins
-        zsh
-        zsh-z
-        zsh-wd
-        zsh-bd
+    environment.systemPackages = (with pkgs-stable; [
         dust
         fastfetch
-        neovide # I need to learn Vim keybinds at some point T>T
-    ])
-    ++
-    (with pkgs-unstable; [
-        # If you need any!
+        firefox
+        gimp2-with-plugins
+        nemo
+        neovide
+        qalculate-gtk
+        shutter
+        vlc
+        wget
+        zsh
+        zsh-bd
+        zsh-wd
+        zsh-z
+    ]) ++ (with pkgs-unstable; [
+        # ...
     ])
     ;
 
     # Home Manager
     home-manager = {
         extraSpecialArgs = { 
-            inherit 
-            inputs
-            pkgs-unstable
-            pkgs-stable
-            ; 
+            inherit inputs pkgs-unstable pkgs-stable; 
         };
 
         useGlobalPkgs = true;
-        useUserPackages = true;
-        backupFileExtension = "backup";
 
         users.tetraketra = {
             imports = [
                 ../homes/tetraketra.nix
             ];
-            
-            programs.home-manager.enable = true;
 
             home = {
                 username = "tetraketra";
