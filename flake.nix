@@ -9,6 +9,8 @@
             url = "github:nix-community/home-manager/release-25.11";
             inputs.nixpkgs.follows = "nixpkgs-stable";
         };
+
+        nixpkgs-pinta.url = "github:NixOS/nixpkgs/f366af7a1b3891d9370091ab03150d3a6ee138fa";
     };
 
     outputs = { 
