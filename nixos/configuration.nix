@@ -61,15 +61,14 @@
     
     # Define system packages.
     environment.systemPackages = (with pkgs-stable; [
+        dconf
+        dconf-editor
         dust
         fastfetch
         firefox
-        gimp2-with-plugins
         nemo
         neovide
-        qalculate-gtk
         shutter
-        vlc
         wget
         zsh
         zsh-bd

@@ -46,7 +46,7 @@
             ] ++ pkgs-stable.vscode-utils.extensionsFromVscodeMarketplace [
                 # RMB Extension
                 # > Download Specific Version VSIX
-                # > `openssl dgst -sha256 -binary [YOUR_FILE_HERE] | openssl base64 -A` 
+                # > `openssl dgst -sha256 -binary [YOUR_FILE_HERE] | openssl base64 -A`
                 # > "sha2560-[YOUR_THING_HERE]"
                 {
                     name = "python-envy";

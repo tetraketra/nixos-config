@@ -1,9 +1,16 @@
 { config, pkgs-stable, ... }:
 
+let
+    image-types = [ "png" "jpeg" "jpg" "gif" "svg+xml" "bmp" "webp" "tiff" "x-icon" "vnd.microsoft.icon" "heif" "heic" "avif" "x-pcx" "x-pnm" "x-portable-bitmap" "x-portable-graymap" "x-portable-pixmap" "x-xbitmap" "x-xpixmap" ];
+    image-formats = map (type: "image/${type}") image-types;
+in
 {
     environment.systemPackages = with pkgs-stable; [
         alacritty
         alacritty-theme
+        gimp2-with-plugins
+        qalculate-gtk
+        vlc
     ];
 
     programs.dconf.profiles.user.databases = [{
@@ -27,17 +34,14 @@
                 exec = "qalculate-gtk";
             };
         };
-        
+
     }];
 
-    xdg.mime.defaultApplications = {
+    xdg.mime.defaultApplications = builtins.listToAttrs (
+        map (format: { name = format; value = "gimp.desktop"; })
+        image-formats
+    ) // {
         "application/pdf" = "firefox.desktop";
-        "image/png" = "gimp.desktop";
-        "image/jpeg" = "gimp.desktop";
-        "image/gif" = "gimp.desktop";
-        "image/svg+xml" = "gimp.desktop";
-        "image/bmp" = "gimp.desktop";
-        "image/webp" = "gimp.desktop";
         "text/plain" = "code.desktop";
         "text/html" = "firefox.desktop";
     };
