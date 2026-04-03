@@ -1,7 +1,7 @@
 { config, lib, inputs, pkgs-unstable, pkgs-stable, ... }:
 
 let
-    startup-generator = command: name: ''
+    startup-generator = { command, name, filename }: ''
         [Desktop Entry]
         Type=Application
         Exec=${command}
@@ -12,14 +12,14 @@ let
     '';
 
     autostart-apps = [
-        ( startup-generator "Vesktop" "vesktop" )
-        ( startup-generator "Firefox" "firefox" )
-        ( startup-generator "GitHub Desktop" "github-desktop" )
+        { name = "Vesktop"; command = "vesktop"; filename="vesktop"; }
+        { name = "Firefox"; command = "firefox"; filename="firefox"; }
+        { name = "GitHub Desktop"; command = "github-desktop"; filename="github-desktop"; }
     ];
 in
 {
     home.file = builtins.listToAttrs (map app: {
-        ".config/autostart/${lib.strings.replaceChars " " "-" app.name}.desktop"
-        value.text = startup-generator app
+        name = ".config/autostart/${app.filename}.desktop";
+        value.text = startup-generator app;
     } autostart-apps);
 }
