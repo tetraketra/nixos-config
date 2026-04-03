@@ -2,7 +2,7 @@
 
 let
     enable-on-targets = [ "hp-envy" ];
-    should-bright = builtins.elem (builtins.getEnv "TARGET") enable-on-targets;
+    should-bright = builtins.elem (builtins.getFlake "target" or "<MISSING ARG: target>") enable-on-targets;
 in
 {
     systemd.timers."set-gamma" = lib.mkIf should-bright {
