@@ -70,6 +70,7 @@ in
                 (extension-generator "bbenoist" "doxygen" "1.0.0" "sha256-FhH+pi2lVD7pZJMa4znJDz3S7Zqw8ltpYUMqW4FZlE0=")
                 (extension-generator "gerrnperl" "outline-map" "1.4.2" "sha256-F1JmOxyfa9u2sEWiW2esHRONUNYRjME/X/KJ33MaW/M=")
                 (extension-generator "slevesque" "shader" "1.1.5" "sha256-Pf37FeQMNlv74f7LMz9+CKscF6UjTZ7ZpcaZFKtX2ZM=")
+                (extension-generator "ivangabriele" "vscode-git-add-and-commit" "2.1.1" "sha256-5z90NqxzCtiWj6zJqoQvnGzk0WMiVLLXmk0oHzsjXEI=%")
             ];
         })
     ];
