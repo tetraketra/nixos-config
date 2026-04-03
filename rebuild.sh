@@ -1,1 +1,1 @@
-TARGET=$1 sudo nixos-rebuild switch --impure --flake ./#myNixos
+TARGET="$1" sudo --preserve-env=TARGET nixos-rebuild switch --impure --flake ./#myNixos
