@@ -49,11 +49,10 @@ in
         DISPLAY = ":0";
     };
 
-    home.activation.setGamma = lib.mkIf should-bright {
-        text = ''
-            ${pkgs-stable.xorg.xrandr}/bin/xrandr --output eDP-1 --brightness 2
-        '';
-    };
+    home.activation.setGamma = lib.mkIf should-bright ''
+        ${pkgs-stable.xorg.xrandr}/bin/xrandr --output eDP-1 --brightness 2
+    '';
+
 
     home.file.".config/systemd/user/set-gamma.service".text = lib.mkIf should-bright ''
         [Unit]
