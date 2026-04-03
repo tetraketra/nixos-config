@@ -2,25 +2,25 @@
 
 let
     extension-generator = publisher: name: version: sha256: {
-        name = name; 
-        publisher = publisher; 
-        version = version; 
+        name = name;
+        publisher = publisher;
+        version = version;
         sha256 = sha256;
     };
-in       
+in
 {
     environment.systemPackages = with pkgs-stable; [
         # == c/cpp =====
-        nix-ld 
-        libgcc 
-        glib 
+        nix-ld
+        libgcc
+        glib
         glibc
 
         # == rust ======
-        cargo 
-        rustc 
-        rustfmt 
-        clippy 
+        cargo
+        rustc
+        rustfmt
+        clippy
         rust-analyzer
 
         # == python ====
@@ -28,14 +28,14 @@ in
         uv
 
         # == games =====
-        sdl3 
-        SDL2 
-        glfw 
+        sdl3
+        SDL2
+        glfw
         raylib
 
         # == misc dev ==
-        gnumake 
-        git 
+        gnumake
+        git
         github-desktop
 
         # == vscode ====

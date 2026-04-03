@@ -1,5 +1,5 @@
 { inputs, config, pkgs-stable, pkgs-unstable, target-selection, ... }:
-    
+
 {
     imports = [
         target-selection
@@ -46,14 +46,13 @@
     system.stateVersion = "25.11";
 
     nixpkgs.config.allowUnfree = true;
-    
+
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
     services.libinput = {
         enable = true;
         touchpad.naturalScrolling = true;
     };
-
 
     # Define user account.
     programs.zsh.enable = true;
@@ -63,7 +62,7 @@
         extraGroups = [ "networkmanager" "wheel" ];
         shell = pkgs-stable.zsh;
     };
-    
+
     # Define system packages.
     environment.systemPackages = (with pkgs-stable; [
         btop
@@ -93,8 +92,8 @@
 
     # Home Manager
     home-manager = {
-        extraSpecialArgs = { 
-            inherit inputs pkgs-unstable pkgs-stable; 
+        extraSpecialArgs = {
+            inherit inputs pkgs-unstable pkgs-stable;
         };
 
         backupFileExtension = "backup";

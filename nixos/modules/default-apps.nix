@@ -1,5 +1,4 @@
 { config, pkgs-stable, ... }:
-# TODO: TO BE CONVERTED TO HOME-MANAGER ACTUAL USER PROFILE (*NOT JUST DEFAULTS*)
 let
     image-types = [ "png" "jpeg" "jpg" "gif" "svg+xml" "bmp" "webp" "tiff" "x-icon" "vnd.microsoft.icon" "heif" "heic" "avif" "x-pcx" "x-pnm" "x-portable-bitmap" "x-portable-graymap" "x-portable-pixmap" "x-xbitmap" "x-xpixmap" ];
     image-formats = map (type: "image/${type}") image-types;
