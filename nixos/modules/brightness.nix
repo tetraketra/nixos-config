@@ -7,7 +7,7 @@ in
 {
     systemd.user.services."set-gamma" = lib.mkIf should-bright {
         Unit.After = [ "graphical-session.target" ];
-        Install.WantedBy = [ "graphical-session.target" ];
+        WantedBy = [ "graphical-session.target" ];
 
         Service = {
             Type = "oneshot";
@@ -16,11 +16,12 @@ in
     };
 
     systemd.user.timers."set-gamma" = lib.mkIf should-bright {
-        Install.WantedBy = [ "timers.target" ];
+        WantedBy = [ "timers.target" ];
 
         Timer = {
             OnBootSec = "2m";
             OnUnitActiveSec = "2m";
+            Unit = "set-gamma.service";
         };
     };
 }
