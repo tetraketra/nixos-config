@@ -11,7 +11,7 @@ let
         Name=${name}
     '';
 
-    autostart-apps = [
+    startup-apps = [
         { name = "Vesktop"; command = "vesktop"; filename="vesktop"; }
         { name = "Firefox"; command = "firefox"; filename="firefox"; }
         { name = "GitHub Desktop"; command = "github-desktop"; filename="github-desktop"; }
@@ -24,6 +24,6 @@ in
                 name = ".config/autostart/${app.filename}.desktop";
                 value.text = startup-generator app;
             }
-        ) autostart-apps
+        ) startup-apps
     );
 }
