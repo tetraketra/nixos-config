@@ -10,7 +10,6 @@ in
         alacritty-theme
         gimp2-with-plugins
         qalculate-gtk
-
     ];
 
     programs.dconf.profiles.user.databases = [{

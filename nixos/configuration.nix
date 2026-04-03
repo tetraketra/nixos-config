@@ -1,5 +1,5 @@
 { inputs, config, pkgs-stable, pkgs-unstable, host-selection, ... }:
-
+    
 {
     imports = [
         host-selection
@@ -7,6 +7,7 @@
         ./modules/cinnamon.nix
         ./modules/default-apps.nix
         ./modules/development.nix
+        ./modules/brightness.nix
         inputs.home-manager.nixosModules.home-manager
     ];
 
@@ -78,6 +79,7 @@
         zsh-bd
         zsh-wd
         zsh-z
+        xorg.xrandr
     ]) ++ (with pkgs-unstable; [
         # ...
     ])
