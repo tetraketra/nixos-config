@@ -30,7 +30,7 @@ let
     ];
 
     configs = map (f: import f { inherit config lib inputs pkgs-stable pkgs-unstable; }) files;
-    merged = foldl (a b: a // b) {} configs;
+    merged = foldl (a: b: a // b) {} configs;
 in
 merged // {
     # Set Desktop Keybinds
