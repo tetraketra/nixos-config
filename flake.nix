@@ -22,14 +22,14 @@
     let
         system = "x86_64-linux";
         pkgs-generator = nixpkgs: import nixpkgs { inherit system; config.allowUnfree = true; };
-        host-selection = ./. + "/nixos/targets/${builtins.getEnv "TARGET"}/hardware-configuration.nix";
+        target-selection = ./. + "/nixos/targets/${builtins.getEnv "TARGET"}/hardware-configuration.nix";
         pkgs-stable = pkgs-generator inputs.nixpkgs-stable;
         pkgs-unstable = pkgs-generator inputs.nixpkgs-unstable;
     in {
         nixosConfigurations = {
             myNixos = nixpkgs-stable.lib.nixosSystem {
                 specialArgs = { 
-                    inherit inputs host-selection pkgs-stable pkgs-unstable; 
+                    inherit inputs target-selection pkgs-stable pkgs-unstable; 
                 };
                 modules = [ ./nixos/configuration.nix ];
             };

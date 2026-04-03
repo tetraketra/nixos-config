@@ -1,8 +1,8 @@
-{ inputs, config, pkgs-stable, pkgs-unstable, host-selection, ... }:
+{ inputs, config, pkgs-stable, pkgs-unstable, target-selection, ... }:
     
 {
     imports = [
-        host-selection
+        target-selection
         ./modules/oauth-redirect.nix
         ./modules/cinnamon.nix
         ./modules/default-apps.nix
