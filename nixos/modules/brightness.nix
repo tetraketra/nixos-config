@@ -2,10 +2,14 @@
 
 let
     version = builtins.replaceStrings ["\n"] [""] (builtins.readFile ../../.host-selection);
+
     enable-on-hosts = [ "hp-envy" ];
     should-bright = builtins.elem version enable-on-hosts;
 in
 {
+    builtins.trace version
+    builtins.trace version should-bright
+
     systemd.timers."set-gamma" = lib.mkIf {
         wantedBy = [ "timers.target" ];
         timerConfig = {
