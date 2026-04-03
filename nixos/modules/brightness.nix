@@ -1,10 +1,8 @@
 { config, lib, pkgs-stable, ... }:
 
 let
-    version = builtins.replaceStrings ["\n"] [""] (builtins.readFile ../../.host-selection);
-
     enable-on-hosts = [ "hp-envy" ];
-    should-bright = builtins.elem version enable-on-hosts;
+    should-bright = builtins.elem (builtins.getEnv "TARGET") enable-on-hosts;
 in
 {
     systemd.timers."set-gamma" = lib.mkIf should-bright {
