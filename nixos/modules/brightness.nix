@@ -7,10 +7,7 @@ let
     should-bright = builtins.elem version enable-on-hosts;
 in
 {
-    builtins.trace version
-    builtins.trace version should-bright
-
-    systemd.timers."set-gamma" = lib.mkIf {
+    systemd.timers."set-gamma" = lib.mkIf should-bright {
         wantedBy = [ "timers.target" ];
         timerConfig = {
             OnBootSec = "5m";
@@ -19,7 +16,7 @@ in
         };
     };
 
-    systemd.services."set-gamma" = lib.mkIf {
+    systemd.services."set-gamma" = lib.mkIf should-bright {
         script = ''
             ${pkgs-stable.xorg.xrandr} --output eDP-1 --brightness 1.5
         '';
