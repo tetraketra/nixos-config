@@ -1,4 +1,4 @@
-{ config, inputs, pkgs-unstable, pkgs-stable, lib, ... }:
+{ config, lib, inputs, pkgs-unstable, pkgs-stable, ... }:
 
 let
     # Set Desktop Keybinds
@@ -18,22 +18,23 @@ let
                 };
             }) zipped
         );
-    
-    # Install Old Pinta
-    pinta-pkg = import inputs.nixpkgs-pinta {
-        system = pkgs-unstable.stdenv.hostPlatform.system;
-    };
+
 
     # Fix Brightness
     enable-on-targets = [ "hp-envy" ];
     should-bright = builtins.elem (builtins.getEnv "TARGET") enable-on-targets;
     command-bright = "xrandr --output eDP-1 --brightness 1.5";
+
+    files = [
+        ./programs.nix
+        ./dconf.nix
+        ./apps.nix
+    ];
+
+    configs = map (f: import f { inherit config lib inputs pkgs-stable pkgs-unstable; }) files;
 in
 {
-    # Install Old Pinta
-    home.packages = [
-        pinta-pkg.pinta
-    ];
+    foldl (a b: a // b) {} configs
 
     # Set Desktop Keybinds
     dconf.enable = true;
@@ -47,10 +48,10 @@ in
     ];
 
     # Link Dotfiles
-    home.file.".zshrc".source = ../dotfiles/.zshrc;
-    home.file.".bashrc".source = ../dotfiles/.bashrc;
-    home.file.".alacritty.toml".source = ../dotfiles/.alacritty.toml;
-    xdg.configFile."nemo".source = ../dotfiles/nemo;
+    home.file.".zshrc".source = ../../dotfiles/.zshrc;
+    home.file.".bashrc".source = ../../dotfiles/.bashrc;
+    home.file.".alacritty.toml".source = ../../dotfiles/.alacritty.toml;
+    xdg.configFile."nemo".source = ../../dotfiles/nemo;
 
     # Startup Apps
     xdg.configFile."autostart/vesktop.desktop".text = ''
