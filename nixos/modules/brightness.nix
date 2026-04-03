@@ -6,22 +6,24 @@ let
 in
 {
     systemd.user.services."set-gamma" = lib.mkIf should-bright {
-        Unit.After = [ "graphical-session.target" ];
-        WantedBy = [ "graphical-session.target" ];
+        description = "Set screen brightness via xrandr";
 
-        Service = {
-            Type = "oneshot";
-            ExecStart = "${pkgs-stable.xorg.xrandr}/bin/xrandr --output eDP-1 --brightness 2";
-        };        
+        wantedBy = [ "graphical-session.target" ];
+        after = [ "graphical-session.target" ];
+
+        serviceConfig = {
+        Type = "oneshot";
+        ExecStart = "${pkgs-stable.xorg.xrandr}/bin/xrandr --output eDP-1 --brightness 2";
+        };
     };
 
     systemd.user.timers."set-gamma" = lib.mkIf should-bright {
-        WantedBy = [ "timers.target" ];
+        wantedBy = [ "timers.target" ];
 
-        Timer = {
-            OnBootSec = "2m";
-            OnUnitActiveSec = "2m";
-            Unit = "set-gamma.service";
+        timerConfig = {
+        OnBootSec = "2m";
+        OnUnitActiveSec = "2m";
+        Unit = "set-gamma.service";
         };
     };
 }
