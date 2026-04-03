@@ -72,6 +72,7 @@
         nemo
         qalculate-gtk
         shutter
+        vesktop
         wget
         xorg.xrandr
         zsh
