@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, inputs, pkgs-unstable, pkgs-stable, ... }:
 
 {
     home.file.".config/autostart/vesktop.desktop".text = ''
