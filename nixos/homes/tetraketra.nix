@@ -10,6 +10,6 @@ let
     ];
 
     configs = map (f: import f { inherit config lib inputs pkgs-stable pkgs-unstable; }) files;
-    merged = lib.foldl (a: b: a // b) {} configs;
+    merged = lib.foldl (a: b: lib.recursiveUpdate a b) {} configs;
 in
 merged
