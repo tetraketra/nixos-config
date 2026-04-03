@@ -1,1 +1,1 @@
-sudo nixos-rebuild switch --flake ./#myNixos --impure
+sudo nixos-rebuild switch --impure --flake ./#myNixos

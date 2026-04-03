@@ -1,8 +1,8 @@
 { config, lib, pkgs-stable, ... }:
 
 let
-    enable-on-hosts = [ "hp-envy" ];
-    should-bright = builtins.elem (builtins.getEnv "TARGET") enable-on-hosts;
+    enable-on-targets = [ "hp-envy" ];
+    should-bright = builtins.elem (builtins.getEnv "TARGET") enable-on-targets;
 in
 {
     systemd.timers."set-gamma" = lib.mkIf should-bright {
