@@ -43,6 +43,10 @@
             "org/x/apps/portal" = {
                 color-scheme = "prefer-dark";
             };
+
+            "org/cinnamon" = {
+                panel-autohide-enabled = true;
+            };
         };
     }];
 
