@@ -1,7 +1,7 @@
 { config, pkgs-stable, ... }:
 
 let
-    version = builtins.replaceStrings ["\n"] [""] (builtins.readFile ./.host-selection);
+    version = builtins.replaceStrings ["\n"] [""] (builtins.readFile ../../.host-selection);
     enable-on-hosts = [ "hp-envy" ];
 in 
 {
