@@ -18,7 +18,7 @@ in
 
     systemd.services."set-gamma" = lib.mkIf should-bright {
         script = ''
-            ${pkgs-stable.xorg.xrandr} --output eDP-1 --brightness 2.2
+            ${pkgs-stable.xorg.xrandr} --output eDP-1 --brightness 1.5
         '';
         serviceConfig = {
             Type = "oneshot";
