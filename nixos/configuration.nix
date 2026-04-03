@@ -50,6 +50,12 @@
     
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+    services.libinput = {
+        enable = true;
+        touchpad.naturalScrolling = true;
+    };
+
+
     # Define user account.
     programs.zsh.enable = true;
     users.users.tetraketra = {
