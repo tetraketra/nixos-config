@@ -67,14 +67,17 @@
         dust
         emote
         fastfetch
+        firefox
         krita
         nemo
+        qalculate-gtk
+        shutter
         wget
+        xorg.xrandr
         zsh
         zsh-bd
         zsh-wd
         zsh-z
-        xorg.xrandr
     ]) ++ (with pkgs-unstable; [
         # ...
     ])
