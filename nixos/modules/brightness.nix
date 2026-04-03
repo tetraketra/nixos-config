@@ -8,8 +8,8 @@ in
     systemd.timers."set-gamma" = lib.mkIf should-bright {
         wantedBy = [ "timers.target" ];
         timerConfig = {
-            OnBootSec = "1m";
-            OnUnitActiveSec = "1m";
+            OnBootSec = "2m";
+            OnUnitActiveSec = "2m";
             Unit = "set-gamma.service";
         };
     };
