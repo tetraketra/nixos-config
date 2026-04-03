@@ -12,9 +12,6 @@
     ];
 
     # Foundation
-    # boot.loader.grub.enable = true;
-    # boot.loader.grub.device = "/dev/sda";
-    # boot.loader.grub.useOSProber = true;
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
 
@@ -70,10 +67,8 @@
         dust
         emote
         fastfetch
-        firefox
         krita
         nemo
-        shutter
         wget
         zsh
         zsh-bd

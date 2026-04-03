@@ -25,6 +25,9 @@ in
 {
     home.packages = [
         pinta-pkg.pinta
+        shutter
+        firefox
+        qalculate-gtk
     ];
 
     dconf.enable = true;
