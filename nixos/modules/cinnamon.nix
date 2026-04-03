@@ -1,10 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs-stable, ... }:
 
 {
     services.xserver.desktopManager.cinnamon.enable = true;
     services.cinnamon.apps.enable = true;
 
-    environment.cinnamon.excludePackages = with pkgs; [
+    environment.cinnamon.excludePackages = with pkgs-stable; [
         celluloid
         gnome-color-manager
         gnome-calendar
@@ -16,9 +16,7 @@
     ];
 
     # Theming.
-    environment.systemPackages = with pkgs; [
-        dconf
-        dconf-editor
+    environment.systemPackages = with pkgs-stable; [
         mint-themes
         mint-l-icons
         mint-cursor-themes
@@ -44,6 +42,10 @@
 
             "org/x/apps/portal" = {
                 color-scheme = "prefer-dark";
+            };
+
+            "org/cinnamon" = {
+                panel-autohide-enabled = true;
             };
         };
     }];
