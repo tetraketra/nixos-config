@@ -18,8 +18,12 @@ let
     ];
 in
 {
-    home.file = builtins.listToAttrs (map (app: {
-        name = ".config/autostart/${app.filename}.desktop";
-        value.text = startup-generator app;
-    }) autostart-apps);
+    home.file = builtins.listToAttrs (
+        map (
+            app: {
+                name = ".config/autostart/${app.filename}.desktop";
+                value.text = startup-generator app;
+            }
+        ) autostart-apps
+    );
 }
