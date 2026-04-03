@@ -75,9 +75,4 @@ in
         [Install]
         WantedBy=timers.target
     '';
-
-    home.activation.enableSetGammaTimer = lib.mkIf should-bright ''
-        systemctl --user daemon-reload
-        systemctl --user enable --now set-gamma.timer
-    '';
 }
