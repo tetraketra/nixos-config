@@ -21,6 +21,9 @@ let
     pinta-pkg = import inputs.nixpkgs-pinta {
         system = pkgs-unstable.stdenv.hostPlatform.system;
     };
+
+    enable-on-targets = [ "hp-envy" ];
+    should-bright = builtins.elem (builtins.getEnv "TARGET") enable-on-targets;
 in
 {
     home.packages = [
@@ -41,4 +44,41 @@ in
     home.file.".bashrc".source = ../dotfiles/.bashrc;
     home.file.".alacritty.toml".source = ../dotfiles/.alacritty.toml;
     xdg.configFile."nemo".source = ../dotfiles/nemo;
+
+    home.sessionVariables = {
+        DISPLAY = ":0";
+    };
+
+    home.activation.setGamma = lib.mkIf should-bright {
+        text = ''
+            ${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --brightness 2
+        '';
+    };
+
+    home.file.".config/systemd/user/set-gamma.service".text = lib.mkIf should-bright ''
+        [Unit]
+        Description=Set screen brightness
+
+        [Service]
+        Type=oneshot
+        ExecStart=${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --brightness 2
+    '';
+
+    home.file.".config/systemd/user/set-gamma.timer".text = lib.mkIf should-bright ''
+        [Unit]
+        Description=Run set-gamma every 60s after boot
+
+        [Timer]
+        OnBootSec=15s
+        OnUnitActiveSec=60s
+        Unit=set-gamma.service
+
+        [Install]
+        WantedBy=timers.target
+    '';
+
+    home.activation.enableSetGammaTimer = lib.mkIf should-bright ''
+        systemctl --user daemon-reload
+        systemctl --user enable --now set-gamma.timer
+    '';
 }
