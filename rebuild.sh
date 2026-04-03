@@ -1,8 +1,6 @@
-sudo nixos-rebuild switch --flake ./#myNixos
-
-# # Setup.
-# set -e
-# REPO_HOME="$(git rev-parse --show-toplevel)"
+# Setup.
+set -e
+REPO_HOME="$(git rev-parse --show-toplevel)"
 
 # # Move repo.
 # echo "🚚 Moving repo to \`/etc/nixos\`."
@@ -11,13 +9,13 @@ sudo nixos-rebuild switch --flake ./#myNixos
 # sudo cp -r $REPO_HOME /etc/nixos
 # sudo cp /etc/nixos/hosts/$1/hardware-configuration.nix /etc/nixos/hardware-configuration.nix
 
-# # Move dotfiles.
-# echo "🔗 Linking dotfiles."
-# USER_HOME=$(eval echo "~$SUDO_USER")
-# ln -sf $REPO_HOME/dotfiles/.bashrc $USER_HOME/.bashrc
-# ln -sf $REPO_HOME/dotfiles/nemo-desktop-metadata $USER_HOME/.config/nemo/desktop-metadata
-# ln -sf $REPO_HOME/dotfiles/.alacritty.toml $USER_HOME/.alacritty.toml
-# ln -sf $REPO_HOME/dotfiles/.zshrc $USER_HOME/.zshrc
+# Move dotfiles.
+echo "🔗 Linking dotfiles."
+USER_HOME=$(eval echo "~$SUDO_USER")
+ln -sf $REPO_HOME/dotfiles/.bashrc $USER_HOME/.bashrc
+ln -sf $REPO_HOME/dotfiles/nemo-desktop-metadata $USER_HOME/.config/nemo/desktop-metadata
+ln -sf $REPO_HOME/dotfiles/.alacritty.toml $USER_HOME/.alacritty.toml
+ln -sf $REPO_HOME/dotfiles/.zshrc $USER_HOME/.zshrc
 
 # # Rebuild.
 # echo "🏗️  Rebuilding."
@@ -27,3 +25,6 @@ sudo nixos-rebuild switch --flake ./#myNixos
 
 # # Final.
 # echo "✅ Complete!"
+
+# # Rebuild (New)
+sudo nixos-rebuild switch --flake ./#myNixos

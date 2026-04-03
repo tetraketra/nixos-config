@@ -10,7 +10,7 @@ in
         alacritty-theme
         gimp2-with-plugins
         qalculate-gtk
-        vlc
+
     ];
 
     programs.dconf.profiles.user.databases = [{

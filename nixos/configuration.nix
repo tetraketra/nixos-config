@@ -72,7 +72,6 @@
         firefox
         krita
         nemo
-        neovide # I should really learn Vim keybinds sometime.
         shutter
         wget
         zsh
