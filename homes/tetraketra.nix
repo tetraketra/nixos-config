@@ -19,7 +19,7 @@ let
         );
     
     pinta-pkg = import inputs.nixpkgs-pinta {
-        system = pkgs-unstable.system;
+        system = pkgs-unstable.stdenv.hostPlatform.system;
     };
 in
 {
