@@ -5,5 +5,5 @@
     home.file.".bashrc".source = ../../dotfiles/.bashrc;
     home.file.".alacritty.toml".source = ../../dotfiles/.alacritty.toml;
     xdg.configFile."nemo".source = ../../dotfiles/nemo;
-    xdg.configFile."vesktop".source = ../../dotfiles/vesktop;
+    xdg.configFile."vesktop/settings".source = ../../dotfiles/vesktop;
 }
