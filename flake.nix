@@ -22,7 +22,7 @@
     let
         system = "x86_64-linux";
         pkgs-generator = nixpkgs: import nixpkgs { inherit system; config.allowUnfree = true; };
-        target-selection = builtins.path (builtins.toString ./. + "/nixos/targets/${builtins.getFlake "target"}/hardware-configuration.nix");
+        target-selection = builtins.path (builtins.toString ./. + "/nixos/targets/${builtins.getEnv "TARGET"}/hardware-configuration.nix");
         pkgs-stable = pkgs-generator inputs.nixpkgs-stable;
         pkgs-unstable = pkgs-generator inputs.nixpkgs-unstable;
     in {
