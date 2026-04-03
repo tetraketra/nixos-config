@@ -36,6 +36,4 @@ in
         { binding = ["<Primary><Alt>p"]; command = "pinta"; name = "Launch Pinta (P)"; }
         { binding = ["<Primary><Shift>s"]; command = "shutter -s"; name = "Launch Shutter (S)"; }
     ];
-
-    linger = true;
 }
