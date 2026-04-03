@@ -1,33 +1,25 @@
 { config, lib, inputs, pkgs-unstable, pkgs-stable, ... }:
 
+let
+    startup-generator = command: name: ''
+        [Desktop Entry]
+        Type=Application
+        Exec=${command}
+        Hidden=false
+        NoDisplay=false
+        X-GNOME-Autostart-enabled=true
+        Name=${name}
+    '';
+
+    autostart-apps = [
+        ( startup-generator "Vesktop" "vesktop" )
+        ( startup-generator "Firefox" "firefox" )
+        ( startup-generator "GitHub Desktop" "github-desktop" )
+    ];
+in
 {
-    home.file.".config/autostart/vesktop.desktop".text = ''
-        [Desktop Entry]
-        Type=Application
-        Exec=vesktop
-        Hidden=false
-        NoDisplay=false
-        X-GNOME-Autostart-enabled=true
-        Name=Vesktop
-    '';
-
-    home.file.".config/autostart/firefox.desktop".text = ''
-        [Desktop Entry]
-        Type=Application
-        Exec=firefox
-        Hidden=false
-        NoDisplay=false
-        X-GNOME-Autostart-enabled=true
-        Name=Firefox
-    '';
-
-    home.file.".config/autostart/github-desktop.desktop".text = ''
-        [Desktop Entry]
-        Type=Application
-        Exec=github-desktop
-        Hidden=false
-        NoDisplay=false
-        X-GNOME-Autostart-enabled=true
-        Name=GitHub Desktop
-    '';
+    home.file = builtins.listToAttrs (map app: {
+        ".config/autostart/${lib.strings.replaceChars " " "-" app.name}.desktop"
+        value.text = startup-generator app
+    } autostart-apps);
 }
