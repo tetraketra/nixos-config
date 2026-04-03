@@ -51,7 +51,7 @@ in
 
     home.activation.setGamma = lib.mkIf should-bright {
         text = ''
-            ${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --brightness 2
+            ${pkgs-stable.xorg.xrandr}/bin/xrandr --output eDP-1 --brightness 2
         '';
     };
 
@@ -61,7 +61,7 @@ in
 
         [Service]
         Type=oneshot
-        ExecStart=${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --brightness 2
+        ExecStart=${pkgs-stable.xorg.xrandr}/bin/xrandr --output eDP-1 --brightness 2
     '';
 
     home.file.".config/systemd/user/set-gamma.timer".text = lib.mkIf should-bright ''
