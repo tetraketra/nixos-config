@@ -75,6 +75,7 @@
         firefox
         krita
         nemo
+        openssl
         qalculate-gtk
         shutter
         vesktop
