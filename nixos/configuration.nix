@@ -89,6 +89,8 @@
             inherit inputs pkgs-unstable pkgs-stable; 
         };
 
+        backupFileExtension = "backup";
+
         useGlobalPkgs = true;
 
         users.tetraketra = {
