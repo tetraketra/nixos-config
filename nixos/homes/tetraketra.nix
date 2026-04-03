@@ -26,16 +26,13 @@ let
     command-bright = "xrandr --output eDP-1 --brightness 1.5";
 
     files = [
-        ./programs.nix
-        ./dconf.nix
-        ./apps.nix
+        ../modules/pinta.nix
     ];
 
     configs = map (f: import f { inherit config lib inputs pkgs-stable pkgs-unstable; }) files;
+    merged = foldl (a b: a // b) {} configs;
 in
-{
-    foldl (a b: a // b) {} configs
-
+merged // {
     # Set Desktop Keybinds
     dconf.enable = true;
     dconf.settings = keybinds-generator [
