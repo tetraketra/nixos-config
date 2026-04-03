@@ -1,6 +1,7 @@
 { config, inputs, pkgs-unstable, pkgs-stable, lib, ... }:
 
 let
+    # Set Desktop Keybinds
     keybinds-generator = bindlist:
         let
             custom-names = map (i: "custom${toString i}") (pkgs-stable.lib.lists.range 0 (builtins.length bindlist - 1));
@@ -18,18 +19,23 @@ let
             }) zipped
         );
     
+    # Install Old Pinta
     pinta-pkg = import inputs.nixpkgs-pinta {
         system = pkgs-unstable.stdenv.hostPlatform.system;
     };
 
+    # Fix Brightness
     enable-on-targets = [ "hp-envy" ];
     should-bright = builtins.elem (builtins.getEnv "TARGET") enable-on-targets;
+    command-bright = "xrandr --output eDP-1 --brightness 1.5";
 in
 {
+    # Install Old Pinta
     home.packages = [
         pinta-pkg.pinta
     ];
 
+    # Set Desktop Keybinds
     dconf.enable = true;
     dconf.settings = keybinds-generator [
         { binding = ["<Primary><Alt>f"]; command = "firefox"; name = "Launch Firefox (F)"; }
@@ -40,19 +46,18 @@ in
         { binding = ["<Primary><Shift>s"]; command = "shutter -s"; name = "Launch Shutter (S)"; }
     ];
 
+    # Link Dotfiles
     home.file.".zshrc".source = ../dotfiles/.zshrc;
     home.file.".bashrc".source = ../dotfiles/.bashrc;
     home.file.".alacritty.toml".source = ../dotfiles/.alacritty.toml;
     xdg.configFile."nemo".source = ../dotfiles/nemo;
 
-    home.sessionVariables = {
-        DISPLAY = ":0";
-    };
+    # Fix Brightness
+    home.sessionVariables.DISPLAY = ":0";
 
     home.activation.setGamma = lib.mkIf should-bright ''
-        ${pkgs-stable.xorg.xrandr}/bin/xrandr --output eDP-1 --brightness 2
+        ${pkgs-stable.xorg.xrandr}/bin/${command-bright}
     '';
-
 
     home.file.".config/systemd/user/set-gamma.service".text = lib.mkIf should-bright ''
         [Unit]
@@ -60,7 +65,7 @@ in
 
         [Service]
         Type=oneshot
-        ExecStart=${pkgs-stable.xorg.xrandr}/bin/xrandr --output eDP-1 --brightness 2
+        ExecStart=${pkgs-stable.xorg.xrandr}/bin/${command-bright}
     '';
 
     home.file.".config/systemd/user/set-gamma.timer".text = lib.mkIf should-bright ''
