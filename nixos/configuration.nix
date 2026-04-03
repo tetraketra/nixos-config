@@ -75,6 +75,7 @@
         firefox
         krita
         nemo
+        neovide
         openssl
         qalculate-gtk
         shutter
