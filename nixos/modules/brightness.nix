@@ -2,7 +2,7 @@
 
 let
     version = builtins.replaceStrings ["\n"] [""] (builtins.readFile ./.host-selection);
-    enable-on-hosts = [ hp-envy ];
+    enable-on-hosts = [ "hp-envy" ];
 in 
 {
     systemd.timers."set-gamma" = {
@@ -17,7 +17,7 @@ in
     systemd.services."set-gamma" = {
         script = ''
             set -eu
-            ${pkgs.xorg.xrandr} --output eDP-1 --brightness 1.5"
+            ${pkgs-stable.xorg.xrandr} --output eDP-1 --brightness 1.5"
         '';
         serviceConfig = {
             Type = "oneshot";
