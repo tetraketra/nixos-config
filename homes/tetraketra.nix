@@ -36,4 +36,11 @@ in
         { binding = ["<Primary><Alt>p"]; command = "pinta"; name = "Launch Pinta (P)"; }
         { binding = ["<Primary><Shift>s"]; command = "shutter -s"; name = "Launch Shutter (S)"; }
     ];
+
+    home.file.".zshrc".source = ../dotfiles/.zshrc;
+    home.file.".bashrc".source = ../dotfiles/.bashrc;
+    home.file.".alacritty.toml".source = ../dotfiles/.alacritty.toml;
+    xdg.configFile."nemo".source = ./dotfiles/nemo;
+
+    # ln -sf $REPO_HOME/dotfiles/nemo-desktop-metadata $USER_HOME/.config/nemo/desktop-metadata
 }
