@@ -19,7 +19,7 @@ in
         after = [ "graphical.target" ];
         restartIfChanged = true;
         script = ''
-            ${pkgs-stable.xorg.xrandr} --output eDP-1 --brightness 2
+            ${pkgs-stable.xorg.xrandr}/bin/xrandr --output eDP-1 --brightness 2
         '';
         serviceConfig = {
             Type = "oneshot";
