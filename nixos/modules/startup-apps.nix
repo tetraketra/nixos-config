@@ -1,7 +1,7 @@
-{ config, lib, inputs, pkgs-unstable, pkgs-stable, ... }:
+{ config, lib, pkgs, ... }:
 
 {
-    xdg.configFile."autostart/vesktop.desktop".text = ''
+    home.file.".config/autostart/vesktop.desktop".text = ''
         [Desktop Entry]
         Type=Application
         Exec=vesktop
@@ -11,7 +11,7 @@
         Name=Vesktop
     '';
 
-    xdg.configFile."autostart/firefox.desktop".text = ''
+    home.file.".config/autostart/firefox.desktop".text = ''
         [Desktop Entry]
         Type=Application
         Exec=firefox
@@ -21,7 +21,7 @@
         Name=Firefox
     '';
 
-    xdg.configFile."autostart/github-desktop.desktop".text = ''
+    home.file.".config/autostart/github-desktop.desktop".text = ''
         [Desktop Entry]
         Type=Application
         Exec=github-desktop
